@@ -1,0 +1,95 @@
+<div class="container">
+    <form 
+    #ngform ="ngForm"
+    >
+<div class="measures">
+   
+<!-- <img class="girl1" src="/assets/svgadd/girl.svg" alt=""> -->
+
+   
+<div class="demande">
+    <div class="form">
+        <div class="form1">
+        <div class="div-mail">
+        <input ngModel 
+        class="text" type="text"
+         name="name" autocomplete="off" required >
+        <label for="email" class="label-mail">
+            <span class="span-mail">Demande :</span>
+        </label>
+    </div>
+    <div class="div-mail div2">
+        <input class="text date"
+         type="date" name="date" 
+        ngModel
+         autocomplete="off" >
+        <label for="email" class="label-mail">
+            <span class="span-mail datespan">date</span>
+        </label>
+    </div>
+</div>
+    <div class="form2">
+    <ul>
+        <li
+        (click)="select1()"
+        [ngClass]="{selected: selected1}"><input 
+        ngModel
+        
+        name="paies" type="checkbox" class="type1"> 
+        <label for="paies">Fiches de paies </label> </li>
+        
+        <li
+        [ngClass]="{selected: selected2}"
+        (click)="select2()"
+        ><input type="checkbox"
+        ngModel
+        name="attsalaire"
+        class="type2" id="salaire">
+        <label for="slaire">Attestation de salaire</label></li>
+   
+        <li
+        (click)="select3()"
+        [ngClass]="{selected: selected3}"><input
+        ngModel
+        name="atttravail"
+        
+        type="checkbox"class="type3">
+        <label for="att-travail">Attestation de travail</label></li> 
+       
+        <li
+        (click)="select4()"
+        [ngClass]="{selected: selected4}"
+      
+        ><input type="checkbox"class="type4" 
+        ngModel
+        name ="certif"
+        id="certif-travail">
+        <label for="certif-travail">Certification de travail</label></li>
+    </ul>
+    
+    </div>
+</div>
+
+
+
+
+</div>
+    
+    <div class="submit">
+        <img class="girl" src="/assets/svgadd/girl.svg" alt="">
+        <button 
+        type="submit"
+        (click)="onSubmit(ngform.value)"
+        class="btnsubmit"
+        routerLink='/home' 
+        
+        >Submit</button>
+
+ 
+
+</div>
+</div>
+
+</form>
+
+</div>

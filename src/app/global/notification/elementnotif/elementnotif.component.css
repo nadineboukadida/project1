@@ -1,0 +1,67 @@
+@font-face {
+    font-family: title;
+    src: url(/assets/NexaLight.otf);
+  }
+
+  @font-face {
+    font-family: font2;
+    src: url(/assets/Hunting.otf);
+  
+}
+
+h1 {
+    /* margin-bottom: 5px; */
+    margin : 10px;
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    font-family: title;
+    
+}
+p,h4 {
+    margin: 5px;
+    margin-bottom: 2px;
+    font-family: title;
+
+}
+.notification {
+    position: relative;
+    margin:5px 0 ;
+    overflow: scroll;
+    width: 82vw;
+    max-height: 15vh;
+    display: flex;
+    justify-content: flex-start;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.733);
+    /* height: 12vh; */
+    height: fit-content;
+    border: 2px solid rgb(18, 12, 70);
+    color: rgb(0, 0, 0);
+    border-radius:10px;
+}
+img {
+    padding-left: 5px;
+    align-self: center;
+    justify-self: center;
+    width: 50px;
+    height: 100%;
+ 
+}
+.purple {
+    border: 3px rgb(240, 165, 255) solid;
+
+}
+.blue {
+    border: 3px rgb(144, 192, 255) solid;
+
+}
+.green {
+    border: 3px rgb(123, 206, 102) solid;
+
+}
+.red {
+    border: 3px rgb(255, 129, 129) solid;
+
+}

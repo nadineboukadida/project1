@@ -1,0 +1,68 @@
+<div class="proxym"></div>
+<div class="image"
+[ngClass]="{signupImage: signupImage}"
+></div>
+
+<form action=""
+#myForm="ngForm"
+>
+   <div class="form"
+   [ngClass]="{signupform: signupform}"
+   >
+       <h1>Se Connecter</h1>
+    <div 
+    
+    class="div-mail">
+        
+    <input 
+    ngModel 
+    type="text" name="email" autocomplete="off" required >
+    <label for="email" class="label-mail">
+        <span class="span-mail">E-mail</span>
+    </label>
+</div>
+
+  <div class="div-pass">
+    <input 
+    ngModel
+    required type="password" name="pass" autocomplete="off" >
+    <label for="mdp" class="label-pass">
+        <span class="span-pass">
+            Password
+        </span>
+    </label>
+</div>
+<button 
+
+
+[disabled]="myForm.invalid"
+routerLink="/home"
+(click)="signin(myForm.value)"
+class="a" href="#">Login</button>
+</div>
+</form>
+
+
+<!-- ******************************************* SIGN UP LINK !!********************************* -->
+<div class="top"
+[ngClass]="{signuptop: signuptop}"
+>
+  
+<h1 class="title">Vous etes Nouveau ?</h1>
+<h4 class="subtitle">Rejoignez nous maintenant !</h4>
+<p 
+(click)="signup()"
+
+class="signup" href="#">Sign up</p>
+</div>
+
+
+<img src="assets/file1.svg" alt=""
+[ngClass]="{signupsvg : signupsvg }"
+>
+<app-signup
+[signupsvg]="signupsvg"
+[signuptop]="signuptop"
+[signupform]="signupform"
+(signal)="signup()"
+></app-signup>

@@ -1,0 +1,52 @@
+
+
+
+<div class="navbar">
+    <img class="proxym" src="assets/proxym.png" alt="">
+
+    <div
+    
+    (click)="activate()"
+    
+    class="frame">
+        <div class="center"
+       
+        >
+          <input
+          #myDiv
+          type="checkbox">
+          <div class="middle">
+          </div>
+        </div>
+      </div> </div>
+
+   
+<div class="links"
+[ngClass]="{pointer: !frame}">
+    <a 
+    routerLink="/profil"
+
+    (click)="triggerFalseClick()"
+    class="link1"
+    [ngClass]="{move1: frame}"
+    >Profil</a>
+                <a 
+                (click)="triggerFalseClick()"
+                routerLink="/history"
+                href=""  class="link2"
+                [ngClass]="{move1: frame}"
+                >Historique</a>
+
+                <a 
+                  (click)="logout()"
+                  routerLink="/login"
+                
+                href=""  class="link3"
+                [ngClass]="{move1: frame}"
+                >Déconnexion</a>  
+  </div>
+  <div class="blur"
+  (click)="close()"
+  [ngClass]="{blur: frame}"
+  >
+</div>

@@ -1,0 +1,96 @@
+
+
+<div class="container">
+<img src="assets/svg/profil.svg" alt="">
+
+<div class="demande">
+    <div class="form">
+        <form  >
+        <div class="form1">
+        <div class="div-mail div2">
+        <input
+        ngModel
+        class="text" type="text" name="name" autocomplete="off" required 
+        [ngClass]="{border: border}"
+        [disabled]="disable"
+        >
+        <label for="name" class="label-mail">
+            <span class="span-mail"
+         
+            >
+                <span  class="titles"
+           >Full Name : </span>
+                <span class="original"
+               
+                >{{personne.name}}</span>
+                
+            </span>
+        </label>
+    </div>
+
+    <div class="div-mail div2">
+        <input 
+        ngModel
+        class="text" type="text" name="email" autocomplete="off" required 
+        [ngClass]="{border: border}"
+        [disabled]="disable"
+
+        >
+        <label for="email" class="label-mail">
+          
+            <span class="span-mail "
+           
+            >
+                <span  class="titles"
+               
+                >Email :</span>
+
+            <span class="original"
+           
+            >{{personne.email}}</span>
+
+            </span>
+       
+        </label>
+    </div>
+
+    <div class="div-mail div2">
+        <input 
+        ngModel
+        class="text" type="text" name="cin" autocomplete="off" required 
+        [ngClass]="{border: border}"
+        
+        [disabled]="disable"
+        >
+        <label for="cin" class="label-mail">
+            <span class="span-mail "
+           >
+                <span  class="titles"
+                
+                >CIN : </span>
+                <span class="original"
+               >{{personne.cin}}</span>
+
+            </span>
+        </label>
+    </div>
+   
+   
+
+
+</div>
+</form>
+
+</div>
+
+</div>
+<div class="buttons">
+<button
+(click)="edit()"
+>edit</button>
+
+<button
+>save</button>
+</div>
+
+</div>

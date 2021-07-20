@@ -1,0 +1,99 @@
+
+            <form #myform="ngForm" >
+
+<div class="container">
+    <img src="assets/svg/{{pic}}.svg" alt="">
+    
+    <div class="demande">
+        <div class="form">
+            <div class="form1">
+            <div class="div-mail div2">
+            <input
+            ngModel
+            class="text" type="text" name="name" autocomplete="off" required 
+            [ngClass]="{border: border}"
+            [disabled]="disable"
+            [placeholder]="personne.name"
+            >
+            <label for="name" class="label-mail">
+                <span class="span-mail"
+             
+                >
+                    <span  class="titles"
+               >Full Name : </span>
+                    <span class="original"
+                   
+                    ></span>
+                    
+                </span>
+            </label>
+        </div>
+    
+        <div class="div-mail div2">
+            <input 
+            ngModel
+            class="text" type="text" name="phone" autocomplete="off" required 
+            [ngClass]="{border: border}"
+            [disabled]="disable"
+            [placeholder]="personne.phone"
+            >
+            <label for="email" class="label-mail">
+              
+                <span class="span-mail "
+               
+                >
+                    <span  class="titles"
+                   
+                    >Phone Number</span>
+    
+                <span class="original"
+               
+                ></span>
+    
+                </span>
+           
+            </label>
+        </div>
+    
+        <div class="div-mail div2">
+            <input 
+            ngModel
+            class="text" type="text" name="cin" autocomplete="off" required 
+            [ngClass]="{border: border}"
+            [placeholder]="personne.cin"
+            [disabled]="disable"
+            >
+            <label for="cin" class="label-mail">
+                <span class="span-mail "
+               >
+                    <span  class="titles"
+                    
+                    >CIN : </span>
+                    <span class="original"
+                   ></span>
+    
+                </span>
+            </label>
+        </div>
+       
+       
+    
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    <div class="buttons">
+    <button
+    (click)="edit()"
+    >edit</button>
+    
+    <button
+    (click)="updateProfil(myform.value)"
+    
+    >save</button>
+    </div>
+    
+    </div>
+</form>

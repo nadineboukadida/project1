@@ -1,0 +1,34 @@
+
+    .container-demande {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-top: 70px;
+        padding-bottom: 70px;
+        z-index: 100;
+        background-image: url(/assets/svgadd/background.svg);
+    }
+
+
+
+@font-face {
+    font-family: title;
+    src: url(/assets/NexaLight.otf);
+  }
+
+  @font-face {
+    font-family: font2;
+    src: url(/assets/Hunting.otf);
+  
+}
+
+h1 {
+    /* margin-bottom: 5px; */
+    margin : 10px;
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    font-family: title;
+    
+}

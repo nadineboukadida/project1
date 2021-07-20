@@ -1,0 +1,41 @@
+<div class="demande">
+    <div class="utility">
+    <h4 class="demande-name"
+    >{{demande.name}}</h4>
+
+    <div class="level">
+    <div class=" picture">
+        <img src="../../../assets/svg/new.svg" 
+        [ngClass]="{new: new}"
+        class="picture1" alt="">
+  
+    
+        <img src="/assets/svg/working.svg" class="picture2" alt=""
+        [ngClass]="{progress: progress}"
+        >
+
+        <img src="/assets/svg/ok.svg"
+        [ngClass]="{accepted : accepted}"
+        class="picture3" alt="">
+   
+        <img src="/assets/svg/close.svg"   
+        [ngClass]="{closed: closed}"
+        class="picture4"alt="">
+    </div>
+
+    <div class="arrow">
+    <p class="pourcentage"
+    [ngClass]="{new: new,progress: progress,accepted : accepted,closed: closed}"
+    >
+        <!-- after -->
+    </p>
+    </div>
+    <span class="status">{{status}}</span>
+
+   
+
+
+</div>
+</div>
+<!-- <img class="edit" src="assets/edit.png" alt=""> -->
+</div>

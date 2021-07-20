@@ -1,0 +1,87 @@
+
+<div class="signupForm"
+
+>
+    
+
+     
+<form 
+#myForm="ngForm"
+>
+    <div class="form1" 
+    [ngClass]="{signupform: !signupform}"
+    >
+        <h1>S'inscrire</h1>
+     <div class=" div-name div-mail">
+     <input ngModel type="text" name="name" autocomplete="off" required >
+     <label for="email" class="label-mail shake-horizontal">
+         <span class="span-mail">Nom et Prénom</span>
+     </label>
+ </div>
+ 
+   <div class="div-mail">
+     <input ngModel required type="email" name="email" autocomplete="off" >
+     <label for="mdp" class="label-mail">
+         <span class="span-mail">
+             E-mail
+         </span>
+     </label>
+ </div>
+
+ <div class=" div-pass">
+     <input ngModel required type="password" name="pass" autocomplete="off" >
+     <label for="mdp" class="label-pass">
+         <span class="span-pass">
+             Mot de Passe
+         </span>
+     </label>
+ </div>
+ <div class="form2">
+ <ul>
+     
+    <li
+    (click)="select1()"
+
+    [ngClass]="{selected: selected1}">
+    <input 
+    
+    [checked]="checked1"
+    #first
+    name="female" type="checkbox" class="type1"> 
+    <label for="female">female </label> </li>
+    
+    <li
+    (click)="select2()"
+    [ngClass]="{selected: selected2}">
+    <input 
+    [checked]="checked2"
+    #second
+    
+    name="male" type="checkbox" class="type1"> 
+    <label for="male">male </label> </li>
+ </ul>
+</div>
+ <button 
+ class="a" 
+ (click)= "createuser(myForm.value)"
+ [disabled]="myForm.invalid"
+ routerLink='/home' 
+ >Sign Up</button>
+</div>
+
+<div class="top1"
+[ngClass]="{signuptop: !signuptop}"
+>
+   
+ <h1 class="title1">Vous avez déja un Compte ?</h1>
+ <h4 class="subtitle">Rejoignez nous maintenant !</h4>
+<p class="signup" href="#"
+(click)="signup(myForm)"
+>Sign in</p>
+</div>
+</form>
+<img src="assets/file2.svg" class="file2" alt=""
+[ngClass]="{signupsvg: !signupsvg}"
+>
+ 
+</div>

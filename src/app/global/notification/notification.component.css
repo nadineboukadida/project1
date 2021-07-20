@@ -1,0 +1,30 @@
+.container {
+    width: 100vw;
+    height : 90vh ;
+    transform: translateY(70px);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items:center;
+
+}
+
+@font-face {
+    font-family: title;
+    src: url(/assets/NexaLight.otf);
+  }
+
+  @font-face {
+    font-family: font2;
+    src: url(/assets/Hunting.otf);
+  
+}
+h1 {
+    /* margin-bottom: 5px; */
+    margin : 10px;
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    font-family: title;
+    
+}
