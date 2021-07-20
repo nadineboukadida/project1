@@ -81,8 +81,8 @@ export interface User {
   name ?: string;
   gender:string;
   cin?:string;
-  phone?:string;
-  // password :string;
+  phone?:string
+  // 
 }
 
 export interface IDemandes {
