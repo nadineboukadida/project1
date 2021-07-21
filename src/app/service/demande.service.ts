@@ -4,7 +4,7 @@ import { DemandeModule } from '../model/demande/demande.module';
 import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore'
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { LoginService } from './login.service';
 
 @Injectable({
@@ -78,12 +78,18 @@ export class DemandeService {
   //  }
    
    getdemandes (){
-    return this.firestore.collection('demands').doc(this.loginservice.userID).collection('collection').snapshotChanges()
+    return this.firestore.collection('demands')
+    .doc(this.loginservice.userID)
+    .collection('collection' ,ref=> ref.where("type","<","4")).snapshotChanges()
   
    }
    gethistory(){
-     return this.firestore.collection('demands').doc(this.loginservice.userID).collection('collection')
+     return this.firestore.collection('demands')
+     .doc(this.loginservice.userID).collection('collection'
+     ,ref=> ref.where("type","==","4")).snapshotChanges()
      
+     
+    
    }
   //  getdemand (){
   //    return this.firestore.

@@ -15,10 +15,27 @@ export class HistoriqueListComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getdemandes()
+    this.getdemand()
   }
 
-    
+  getdemand(){
+this.demandeservice.gethistory()
+   .subscribe(
+    (res)=> {
+      
+      this.demandes= res.map (
+      (demand)=> { 
+        return {
+         
+   ...demand.payload.doc.data() as IDemandes,
+           id : demand.payload.doc.id
+        } as IDemandes;
+        
+      })
+    }
+   )
 }
 
 
 
+}
