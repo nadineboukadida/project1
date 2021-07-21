@@ -9,11 +9,11 @@
             <div class="form1">
             <div class="div-mail div2">
             <input
-            ngModel
+            [ngModel]="personne.name"
             class="text" type="text" name="name" autocomplete="off" required 
             [ngClass]="{border: border}"
             [disabled]="disable"
-            [placeholder]="personne.name"
+            
             >
             <label for="name" class="label-mail">
                 <span class="span-mail"
@@ -31,11 +31,10 @@
     
         <div class="div-mail div2">
             <input 
-            ngModel
+            [ngModel]="personne.phone"
             class="text" type="text" name="phone" autocomplete="off" required 
             [ngClass]="{border: border}"
             [disabled]="disable"
-            [placeholder]="personne.phone"
             >
             <label for="email" class="label-mail">
               
@@ -57,10 +56,10 @@
     
         <div class="div-mail div2">
             <input 
-            ngModel
+            [ngModel]="personne.cin"
+
             class="text" type="text" name="cin" autocomplete="off" required 
             [ngClass]="{border: border}"
-            [placeholder]="personne.cin"
             [disabled]="disable"
             >
             <label for="cin" class="label-mail">

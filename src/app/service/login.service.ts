@@ -84,6 +84,7 @@ async createUser(email : string , pass : string, name : string, gender : string)
       localStorage.removeItem('user');
       this.userID=null;
     }
+    
     updateProfil(data) {
       return( this.firestore
           .collection("users")

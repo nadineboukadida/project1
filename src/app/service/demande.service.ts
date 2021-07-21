@@ -15,7 +15,8 @@ import { LoginService } from './login.service';
 
 export class DemandeService {
   demandes: IDemandes[] =[];
-
+  currentdocid: string;
+  history : IDemandes[]=[];
   constructor( public firebaseAuth : AngularFireAuth ,
     private firestore: AngularFirestore, private loginservice : LoginService) {
 
@@ -34,7 +35,7 @@ export class DemandeService {
 
    }
 
-   updateUserData( form) {
+   async updateUserData( form) {
     // Sets user data to firestore on login
     // const userRef: AngularFirestoreDocument<IDemandes> = 
 
@@ -46,16 +47,30 @@ export class DemandeService {
   date : form.date
     } 
 
-  return this.firestore.collection('demands').doc(this.loginservice.userID).collection('collection').add(data)
 
+  const {id} =await this.firestore.collection('demands').doc(this.loginservice.userID).collection('collection').add(data)
+    this.firestore
+        .collection("demands")
+        .doc(this.loginservice.userID).collection('collection').doc(id).set({docid : id}, { merge: true })
 
   }
   addDemande (payload : IDemandes){
    this.updateUserData(payload)
   }
 
+  updatedemande(data:IDemandes,id){
+      return( this.firestore
+          .collection("demands")
+          .doc(this.loginservice.userID).collection('collection')
+          .doc(id)
+          .set(data,{ merge: true }))
+  }
 
-
+  getdemand(id){
+    return this.firestore.collection('demands').doc(this.loginservice.userID)
+    .collection('collection').doc(id).valueChanges(
+    )
+  }
 
   //  getlist(){
   //    if (!this.userID) return(null);
@@ -66,6 +81,13 @@ export class DemandeService {
     return this.firestore.collection('demands').doc(this.loginservice.userID).collection('collection').snapshotChanges()
   
    }
+   gethistory(){
+     return this.firestore.collection('demands').doc(this.loginservice.userID).collection('collection')
+     
+   }
+  //  getdemand (){
+  //    return this.firestore.
+  //  }
    getprofil (){
     return this.firestore.collection('users').doc(this.loginservice.userID).valueChanges()
 
@@ -90,7 +112,8 @@ export interface IDemandes {
   name :string;
   level : number ;
   type : string;
-  date ?: Timestamp<any>;
+  date ?: string;
+  docid?:string
 }
 
 

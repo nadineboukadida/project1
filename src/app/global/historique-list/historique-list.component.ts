@@ -14,26 +14,10 @@ export class HistoriqueListComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getdemandes()
+    // this.getdemandes()
   }
 
-  getdemandes() :void{
-    this.demandeservice.getdemandes()
-    .subscribe(
-      (res)=> {
-      
-        this.demandes= res.map (
-        (demand)=> { 
-          return {
-           
-     ...demand.payload.doc.data() as IDemandes,
-             id : demand.payload.doc.id
-          } as IDemandes;
-        }).filter(demand => demand.level==4);;
-      });
-    ;
-
-  }
+    
 }
 
 
