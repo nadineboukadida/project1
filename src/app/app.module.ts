@@ -23,6 +23,11 @@ import { AngularFireModule, ɵAngularFireSchedulers } from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AuthGuard } from './auth.guard';
 import { MyprofilComponent } from './global/myprofil/myprofil.component';
+import { AdminComponent } from './global/admin/admin.component';
+import { AdmnComponent } from './global/admin/admn/admn.component';
+import { HomeUserComponent } from './global/admin/home-user/home-user.component';
+import { ElementUserComponent } from './global/admin/home-user/element-user/element-user.component';
+// import { ElementUserComponent } from './global/admin/homeUser/element-user/element-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +44,11 @@ import { MyprofilComponent } from './global/myprofil/myprofil.component';
     ElementnotifComponent,
     HistoriqueListComponent,
     DetailsComponent,
-    MyprofilComponent
+    MyprofilComponent,
+    AdminComponent,
+    AdmnComponent,
+    HomeUserComponent,
+    ElementUserComponent
   ],
   imports: [
     BrowserModule,

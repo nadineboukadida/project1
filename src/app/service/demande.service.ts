@@ -86,11 +86,15 @@ export class DemandeService {
    gethistory(){
      return this.firestore.collection('demands')
      .doc(this.loginservice.userID).collection('collection'
-     ,ref=> ref.where("type","==","4")).snapshotChanges()
-     
-     
-    
+     ,ref=> ref.where("type","==","4")).snapshotChanges()   
    }
+
+   getuserdemandes(id){
+    return this.firestore.collection('demands')
+    .doc(id)
+    .collection('collection' ,ref=> ref.where("type","<","4")).snapshotChanges()
+   }
+
   //  getdemand (){
   //    return this.firestore.
   //  }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import * as _ from 'animejs'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

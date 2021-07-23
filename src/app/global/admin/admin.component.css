@@ -1,0 +1,9 @@
+.demands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    z-index: 100;
+}

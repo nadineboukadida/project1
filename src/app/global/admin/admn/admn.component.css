@@ -1,0 +1,52 @@
+.demand {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(175, 221, 252);
+    width: 90vw;
+    height: 50px;
+    border-radius: 12px;
+    margin:5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+img {
+    width: 40px;
+    margin: 2px;
+}
+.img {
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 60px;
+    margin: 0;
+    background-color: rgba(192, 192, 192, 0.24);
+}
+
+h4 {
+    margin: 10px;
+}
+div.name {
+    width :300px;
+    background-color: rgba(0, 255, 255, 0);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+p{
+    margin: 30px;
+    font-size: larger;
+    color: rgb(170, 52, 238);
+}
+
+
+
+@media only screen and (min-width: 360px){ 
+    .demand{
+        width:300px;
+    }
+}
