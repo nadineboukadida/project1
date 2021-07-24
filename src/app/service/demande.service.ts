@@ -65,6 +65,13 @@ export class DemandeService {
           .doc(id)
           .set(data,{ merge: true }))
   }
+  updatelevel(data:ILevel,id){
+    return( this.firestore
+        .collection("demands")
+        .doc(this.loginservice.userID).collection('collection')
+        .doc(id)
+        .set(data,{ merge: true }))
+}
 
   getdemand(id){
     return this.firestore.collection('demands').doc(this.loginservice.userID)
@@ -124,6 +131,9 @@ export interface IDemandes {
   type : string;
   date ?: string;
   docid?:string
+}
+export interface ILevel {
+  level : number
 }
 
 

@@ -1,8 +1,15 @@
 
 <div class="container-demande">
-    <app-element
+    <div class="style">
+        
+    </div>
+    <div class="titles">
+    <h3>Requests from :</h3>
+    <h3> {{user.email}}</h3>
+</div>
+<app-element-user
     *ngFor="let box of demandes"
     [demande]="box"
     >
-    </app-element>
+</app-element-user>
     </div>

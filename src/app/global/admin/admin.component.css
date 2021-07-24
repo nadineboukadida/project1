@@ -6,4 +6,26 @@
     padding-top: 70px;
     padding-bottom: 70px;
     z-index: 100;
+    margin-top: 90px;
+}
+h3{
+    margin-top: 0;
+    color: aliceblue;
+    font-family: title;
+    font-size: 25px;
+}
+.style {
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    transform: translateY(-80px);
+    width: 100vw;
+    height: 40vh;
+    background: rgb(164,209,255);
+background: linear-gradient(87deg,
+ rgb(164, 209, 255)
+  0%,
+   rgb(43, 47, 107) 100%);
+   background-repeat: repeat;
+   background-size: contain;
 }

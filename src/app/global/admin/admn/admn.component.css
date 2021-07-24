@@ -1,10 +1,10 @@
 .demand {
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(175, 221, 252);
-    width: 90vw;
+    width: 100vw;
     height: 50px;
     border-radius: 12px;
-    margin:5px;
+    margin:-1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,6 +47,6 @@ p{
 
 @media only screen and (min-width: 360px){ 
     .demand{
-        width:300px;
+        width:320px;
     }
 }

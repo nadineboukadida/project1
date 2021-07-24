@@ -27,6 +27,8 @@ import { AdminComponent } from './global/admin/admin.component';
 import { AdmnComponent } from './global/admin/admn/admn.component';
 import { HomeUserComponent } from './global/admin/home-user/home-user.component';
 import { ElementUserComponent } from './global/admin/home-user/element-user/element-user.component';
+import { ModifyComponent } from './global/modify/modify.component';
+import { TabadminComponent } from './global/tabadmin/tabadmin.component';
 // import { ElementUserComponent } from './global/admin/homeUser/element-user/element-user.component';
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { ElementUserComponent } from './global/admin/home-user/element-user/elem
     AdminComponent,
     AdmnComponent,
     HomeUserComponent,
-    ElementUserComponent
+    ElementUserComponent,
+    ModifyComponent,
+    TabadminComponent
   ],
   imports: [
     BrowserModule,

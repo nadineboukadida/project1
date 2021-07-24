@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="footer">
+        <div class="icon add">
+            
+            <img class="addimg"src="/assets/svgtab/addgray.svg" alt="">
+            <img 
+            routerLink="/add" routerLinkActive="router-link-active" 
+            class="addimg color add-color" src="/assets/svgtab/add.svg" alt=""
+            [ngClass]="{show: add}"
+            (click)="addClick()"
+            
+            >
+        </div>
+        <div class="icon home">
+           
+            <img class="homeimg" src="/assets/svgtab/homegray.svg" alt="">
+            
+            <img 
+            routerLink="/home" routerLinkActive="router-link-active" 
+            
+            class="homeimg color home-color" src="/assets/svgtab/home.svg" alt=""
+            [ngClass]="{show: home}"
+            (click)="homeClick()"
+            >
+
+        </div>
+        <div class="icon notif">
+          
+            <img class="imgnotif"src="/assets/svgtab/notifgray.svg" alt="">
+            <img 
+            routerLink="/notif" routerLinkActive="router-link-active" 
+            
+            class=" imgnotif color notif-color" src="/assets/svgtab/notif.svg" alt=""
+            [ngClass]="{show: notif}"
+            (click)="notifClick()"
+
+            
+            >
+
+        </div>
+        <div class="footerafter"
+        
+        ></div>
+       </div>

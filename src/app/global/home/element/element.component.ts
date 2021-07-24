@@ -23,6 +23,7 @@ export class ElementComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log(this.demande)
     // console.log(this.demande.name)
     // console.log(this.demande.date)
     // console.log(this.demande.level)

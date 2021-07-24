@@ -1,0 +1,113 @@
+<div class="style"></div>
+
+<!-- <img class="container1" src="/assets/svg/background-update.svg"> -->
+<div class="container">
+    <form #myform ="ngForm">
+    <div class="measures">
+        <h1>Edit</h1>
+
+       
+    <!-- <img class="girl1" src="/assets/svgadd/girl.svg" alt=""> -->
+    
+       
+    <div class="demande">
+        <div class="form">
+            <div class="form1">
+            <div class="div-mail">
+            <input class="text" type="text" 
+            name="name" autocomplete="off" required 
+            [ngModel]="demande.name"
+            disabled
+
+            >
+            <label for="email" class="label-mail">
+                <span class="span-mail">Demande :</span>
+            </label>
+        </div>
+        <div class="div-mail div2">
+            <input class="text date"
+            [ngModel]="demande.date"
+             type="date" name="date" autocomplete="off" required
+         
+            >
+            <label for="email" class="label-mail">
+                <span class="span-mail datespan">date</span>
+            </label>
+        </div>
+    </div>
+        <div class="form2">
+        <ul>
+            <li
+            *ngIf="selected1"
+            [ngClass]="{selected: selected1}">
+            <input name="paies" type="checkbox" 
+            ngModel
+            class="type1"
+            > 
+            <label for="paies">Fiches de paies </label> </li>
+            
+            <li
+            *ngIf="selected2"
+
+            [ngClass]="{selected: selected2}"
+            ><input type="checkbox"class="type2" 
+            ngModel
+            name="attsalaire"
+            id="salaire"
+            >
+            <label for="slaire">Attestation de salaire</label></li>
+       
+            <li
+            *ngIf="selected3"
+
+            [ngClass]="{selected: selected3}">
+            <input type="checkbox"class="type3"
+        name="atttravail"
+        ngModel
+        >
+            
+            <label for="att-travail">Attestation de travail</label></li> 
+           
+            <li
+            *ngIf="selected4"
+
+            [ngClass]="{selected: selected4}"
+          
+            ><input type="checkbox"class="type4" 
+        name ="certif"
+            
+        ngModel
+            
+            id="certif-travail"
+            >
+            <label for="certif-travail">Certification de travail</label></li>
+        </ul>
+        
+        </div>
+    </div>
+    
+    
+    
+    
+    </div>
+        
+        <div class="submit">
+            <img class="girl" src="/assets/svgadd/girl.svg" alt="">
+            <button 
+        
+         (click)="accept()"
+            class="btnsubmit">Accept</button>
+
+            <button 
+       
+         (click)="close()"
+           
+            class="btnsubmit1">Close</button>
+    
+     
+    
+    </div>
+    </div>
+</form>
+    
+</div>

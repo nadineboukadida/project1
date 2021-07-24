@@ -51,9 +51,9 @@ export class ElementUserComponent implements OnInit {
   }
 
   link(){
-    if (this.demande.level==1){
-      this.router.navigate(['/details', this.demande.docid])
+    console.log("heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey")
+      this.router.navigate(['/modify', this.demande.docid])
     }
-  }
+  
   
 }

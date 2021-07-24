@@ -10,6 +10,8 @@ import { LoginService } from './login.service';
 })
 export class PersonneService {
   personnes: User[] =[];
+  thisuser:User;
+
   constructor(public firebaseAuth : AngularFireAuth ,
     private firestore: AngularFirestore,private loginservice: LoginService) { }
 

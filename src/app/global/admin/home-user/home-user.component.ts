@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DemandeService, IDemandes } from 'src/app/service/demande.service';
+import { DemandeService, IDemandes, User } from 'src/app/service/demande.service';
+import { PersonneService } from 'src/app/service/personne.service';
 import { PositionService } from 'src/app/service/position.service';
 
 @Component({
@@ -10,12 +11,13 @@ import { PositionService } from 'src/app/service/position.service';
 })
 export class HomeUserComponent implements OnInit {
   demandes: IDemandes[] = [];
+  user:User;
   constructor(private demandeService:DemandeService , 
     private positionservice : PositionService, private router: Router,
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute, private userservice: PersonneService
         ) 
     {
-   
+    
      
   
  this.positionservice.changePosition("home");
@@ -23,6 +25,8 @@ export class HomeUserComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.user= this.userservice.thisuser
+
     this.activatedRoute.params.subscribe(
       (params)=> {
     this.getdemandes(params.id);

@@ -76,13 +76,19 @@
                     </defs>
                     </svg>
                     <a 
-    routerLink="/admin"
-
-    (click)="triggerFalseClick()"
+                    *ngIf="!adminTab"
+    (click)="admin()"
     class="link4"
     [ngClass]="{move1: frame}"
     >
     Admin Portal</a>
+    <a 
+                    *ngIf="adminTab"
+    (click)="user()"
+    class="link4"
+    [ngClass]="{move1: frame}"
+    >
+    User Portal</a>
   
   </div>
   
