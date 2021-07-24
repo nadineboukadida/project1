@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DemandeService, IDemandes } from 'src/app/service/demande.service';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-modify',
@@ -16,16 +17,20 @@ export class ModifyComponent implements OnInit {
   selected2 : boolean = false ;
   selected3 : boolean = false ;
   selected4 : boolean = false ;
-    first: boolean= false;
-    second: boolean= false;
-    third: boolean= false;
-    forth: boolean= false;
+   level2=false;
+   level3=false;
+   level4=false;
+notice=false;
+
     final: { level: number; };
     type: string="";
+  update: { level: number; admin: string; };
+  text: string="loremloremloremloremlorem"
   
   
     constructor(
       private router: Router,
+      private loginservice : LoginService,
       private demandeservice : DemandeService,
       private activatedRoute : ActivatedRoute
     ) { }
@@ -34,8 +39,10 @@ export class ModifyComponent implements OnInit {
       this.activatedRoute.params.subscribe(
         (params)=> {
       this.getdemande(params.id);
+
         }
       )
+
       
     
   
@@ -45,23 +52,55 @@ export class ModifyComponent implements OnInit {
   
   check(){
     if (this.demande.type.includes("1")){
-      // this.first = true ;
       this.select1();
      
     }
      if (this.demande.type.includes("2")){
-      this.second = true ;
       this.select2();
     }
     if (this.demande.type.includes("3")){
-      this.third = true ;
       this.select3();
     }
      if (this.demande.type.includes("4")){
-      this.forth = true ;
       this.select4();
     }
-      }
+if (this.demande.level==1)
+{this.level2=true}
+if (this.demande.level==2&& 
+  this.demande.admin == this.loginservice.userID)
+{this.level3=true
+this.level2=false;
+
+this.level4=true
+}
+if (this.demande.level==2&& 
+  this.demande.admin!== this.loginservice.userID)
+{this.level2=false;
+  this.level3=false
+this.level4=false
+this.notice=true;
+this.text ="another admin is working on this demand"
+}
+if (this.demande.level==3&& 
+  this.demande.admin!== this.loginservice.userID)
+{this.level3=false
+this.level2=false;
+this.notice=true;
+this.text ="another admin is working on this demand"
+
+this.level4=false
+}
+if (this.demande.level==3&& 
+  this.demande.admin== this.loginservice.userID)
+{this.level3=false
+this.level2=false;
+
+this.level4=true
+}
+  }
+
+
+
     
    
   
@@ -105,6 +144,7 @@ export class ModifyComponent implements OnInit {
   
    
    accept(){
+     this.level3=false;
     this.final={
      level:3
     }
@@ -113,11 +153,24 @@ export class ModifyComponent implements OnInit {
    }
 
    close(){
+    this.level4=false;
+
     this.final={
       level:4
      }
     this.demandeservice.updatelevel(this.final,this.demande.docid);
      console.log('updated')
    }
-   
+   workonit(){
+    this.level2=false;
+
+     this.level3=true;
+     this.level4=true ;
+     this.update ={
+       level:2,
+       admin: this.loginservice.userID
+     }
+     this.demandeservice.updateadmin(this.update,this.demande.docid)
+
+   }
   }

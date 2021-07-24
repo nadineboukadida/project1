@@ -1,24 +1,26 @@
 .style {
+    /* opacity: 0; */
     top: 0;
     position: absolute;
-    z-index: -1;
+    z-index: 5000;
     transform: translateY(-80px);
     width: 100vw;
     height: 40vh;
     background: rgb(164,209,255);
 background: linear-gradient(87deg,
- rgb(164, 209, 255)
+ rgb(0, 0, 0)
   0%,
-   rgb(43, 47, 107) 100%);
+   rgb(114, 114, 114) 100%);
    background-repeat: repeat;
    background-size: contain;
 }
 .container {
     width: 100vw;
     height: 100vh;
-    /* background-image: url(/assets/svg/background-update.svg); */
+    background-image: url(/assets/modify/background.svg);
     position: relative;
-  z-index: 501;
+  z-index: 5001;
+  background-size: cover;
 }
 .container1{
   position: absolute;
@@ -38,16 +40,16 @@ background: linear-gradient(87deg,
     font-family: title;
     font-size: 9vw;
     transform: translateY(10px);
-    
+    color: white;
 }
 .measures {
-    background-image: url(/assets/svgadd/background.svg);
+    /* background-image: url(/assets/svgadd/background.svg); */
 
-    margin-top: 70px;
-    width: 100vw;
-    height: 100vh;
+    margin-top: 60px;
+    /* width: 100vw;
+    height: 100vh; */
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     position: relative;
@@ -56,39 +58,97 @@ background: linear-gradient(87deg,
 
 
 .demande {
-    background-color: rgb(255, 255, 255);
-   
+    background-color: rgba(175, 203, 255, 0.514);
+   background-image:url(/assets/modify/box1.svg) ;
     /* margin-top: 70px; */
+    background-size: cover;
+    font-family: title;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: 2px solid rgb(0, 0, 0);
-    width: 300px;
-    /* transform: translateY(-20px); */
-   height: 352px;
+    justify-content: flex-start;
+    /* border: 2px solid rgb(0, 0, 0); */
+    width: fit-content;
+    transform: translateY(20px);
+   height: 120px;
    z-index: 0;
-    /* padding: 2%; */
-    /* flex-grow: 1; */
+   width: 190px;
+
+padding: 5px;
     border-radius: 20px;
     -webkit-box-shadow: 2px -1px 16px -2px rgba(173,173,173,1);
 -moz-box-shadow: 2px -1px 16px -2px rgba(173,173,173,1);
 box-shadow: 2px -1px 16px -2px rgb(196, 196, 196);
 overflow:hidden;
+/* transform: translate(-10vw); */
+margin: 10px;
+align-self: flex-start;
 
 
 }
 
+.demande1 {
+    background-color: rgb(255, 255, 255);
+   justify-self: flex-end;
+    /* margin-top: 70px; */
+   background-image:url(/assets/modify/box1.svg) ;
+background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+margin: 5px;
+   height:fit-content;
+   padding: 10px;
+   z-index: 0;
+transform: translate(10vw,-5px);
+    border-radius: 20px;
+
+    -webkit-box-shadow: 2px -1px 16px -2px rgba(173,173,173,1);
+-moz-box-shadow: 2px -1px 16px -2px rgba(173,173,173,1);
+box-shadow: 2px -1px 16px -2px rgb(196, 196, 196);
+overflow:hidden;}
+
+.demande2{
+    overflow: scroll;
+    background-color: rgb(255, 255, 255);
+   justify-self: flex-end;
+    /* margin-top: 70px; */
+    display: flex;
+    flex-direction: column;
+    background-image:url(/assets/modify/box.svg) ;
+background-size: cover;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(0, 0, 0);
+    width: 100px;
+margin: 5px;
+padding: 10px;
+
+   height: 50px;
+   z-index: 0;
+transform: translate(30vw);
+    border-radius: 20px;
+
+    -webkit-box-shadow: 2px -1px 16px -2px rgba(173,173,173,1);
+-moz-box-shadow: 2px -1px 16px -2px rgba(173,173,173,1);
+box-shadow: 2px -1px 16px -2px rgb(196, 196, 196);
+overflow:hidden;}
+
+
 .girl {
     /* position: absolute; */
-    width: 150px;
+    width: 120px;
   flex-shrink: 2;
     /* top: 50%; */
     z-index: 5;
     /* opacity: 0; */
     right: 0;
+    transform: translateY(-20px);
     margin: 10px;
 }
+
 
 .position {
     /* position: absolute; */
@@ -99,17 +159,19 @@ position: relative;
 }
 .submit
 {
-  
+  position: relative;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
     margin: 10px;
-    transform: translate(50px);
+    /* width: 100vw; */
+    /* transform: translate(50px); */
 
     
 }
 button {
-    width: fit-content;
+    width: 100px;
     height:fit-content;
     padding: 10px 20px;
     align-self: flex-start;
@@ -117,37 +179,19 @@ button {
     border: 2px rgb(0, 0, 0) solid;
     border-radius: 10px;
     font-size: 20px;
-    transform: translate(-15px,50px);
+    /* transform: translate(-15px,50px); */
     font-family: title;
     /* font-weight: 200px; */
     /* font-size:large; */
 
 }
 
-.btnsubmit1 {
-    position: absolute;
-    font-size: 17px;
-    padding: 7px 12px;
-    transform: translate(-170px,50px);
-    background-color: rgb(219, 136, 136);
-
-}
 
 
-.form {
-    display: flex;
-    flex-direction: column;
-    /* width: fit-content; */
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    /* transform: translateY(10%); */
 
-}
 .div-mail {
     position: relative;
-    width: 80%;
-    /* display: flex; */
+
     justify-content: center;
     align-items: center;
   
@@ -156,18 +200,15 @@ button {
     transform: translateY(-15px);
 }
 
-.form1 input[type="text"], input[type="date"]{
-    height: 2em;
-    margin-top: 2em;
- width: 220px;
-   padding-bottom: 0;
-  vertical-align: middle;
-  border: none;
-  border-bottom: 2px rgb(145, 171, 255) solid;
-  outline: none;
-  transform: translate(0,-7px);
+.form1 {
+    margin: 2px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+ width:fit-content;
   font-size: 18px;
-  
 }
 .form1 label {
     width: 100%;
@@ -189,56 +230,33 @@ button {
     
     }
    
-    
-    .label-mail::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        border-bottom: 2px solid rgb(16, 30, 153);
-        z-index: 10;
-        bottom: 7px;
-        width: 224px;
-        height: 100%;
-        transform: translate(-120vw);
-        pointer-events: none;
-        transition: 1000ms ease-out;
-    
-    
-    
-    }
-    .datespan {opacity: 0;}
-    .form1 input[type="text"] + .label-mail .span-mail,
-    .form1 input[type="text"]+ .label-mail .span-mail {
-        transform: translateY(-20px);
-      font-size: 16px;
-    }
-    .form1 input[type="text"]:focus + .label-mail::after ,
-     .form1 input[type="text"]:valid + .label-mail::after{
-        transform: translateX(0%);
-    } 
-    
-    .form1 input[type="date"]:focus + .label-mail .span-mail,
-    .form1 input[type="date"]:valid + .label-mail .span-mail {
-        transform: translateY(-20px);
-      font-size: 16px;
-    }
-    .form1 input[type="date"]:focus + .label-mail::after ,
-     .form1 input[type="date"]:valid + .label-mail::after{
-        transform: translateX(0%);
-    } 
+.form2 {
+    width: 100%;
+}
     
     .form2 ul {
         list-style-type: none;
         padding: 0;
-        transform: translateY(-25px);
+        transform: translateY(10px);
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
     }
+    .form {width:100%}
     .form2 li {
         padding: 3px;
         margin: 2px;
+        display: flex;
+        flex-wrap: wrap;
+        
         border-radius: 10px;
-        border: 2px solid rgb(176, 177, 250);
+        border: 2px solid rgb(255, 255, 255);
         position: relative;
         padding: 10px;
+        width: 35%;
     }
     .form2 input {
         position: absolute;
@@ -251,135 +269,88 @@ button {
       
     }
     .selected {
-        background-color: rgb(172, 173, 252);
+        background-color: rgb(255, 255, 255);
     }
 
     button:focus {
         background-color: rgb(172, 173, 252);
 
     }
-    @media only screen and (max-height: 1000px){
-       
-      .measures {
-          margin-top: 50px;
-      }
-
-input.text.date {
-    font-size: 17px;
-}
-.demande {
   
-    width: 300px;
-    /* transform: translateY(-20px); */
-   height: 330px;
-  
-
-
-}
-.form {
-  font-family: title;
-    font-size: 17px;
-   
-}
-
-.girl {
-
-    width: 110px;
+h3,p{margin: 2px;
+    color: rgb(253, 253, 253);
+    font-family: title;
+    font-size: 19px;
 
 }
-.btnsubmit {
+.text1 {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+}
+.text{
+    color: rgb(0, 0, 0);
+    margin: 2px;
+    display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+flex-direction: column;
+}
+.titles {
+    margin-top: 20px;
+}
+.btnwork{
+    background-color: rgb(143, 143, 143);
+    /* position: absolute; */
+    z-index: 50000;
+    /* transform: translate(0,220px); */
+    transition-duration: 1000;
+align-self: flex-start;
+justify-self: flex-end;
+width: 150px;
+-webkit-box-shadow: 2px -1px 16px -2px rgba(173,173,173,1);
+-moz-box-shadow: 2px -1px 16px -2px rgba(173,173,173,1);
+box-shadow: 2px -1px 16px -2px rgb(196, 196, 196);
+}
+
+.workonit {
+    transform: translate(150vw);
+}
+.btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height:100%;
+    align-self: flex-start;
+    transform: translateY(-20px);
+}
+.btnsubmit1,.btnsubmit {
+    /* position: absolute; */
     font-size: 17px;
     padding: 7px 12px;
-  background-color: rgb(53, 204, 154);
+    margin: 2px;
+    /* transform: translate(-170px,50px); */
+    background-color: rgb(219, 136, 136);
 
 }
-
-
-div.form {
-    transform: translateY(-10px);
-}
-}
-   
-@media only screen and (max-height: 700px){
-       
-    .measures {
-        margin-top: 30px;
-    }
-
-input.text.date {
-  font-size: 15px;
-}
-.demande {
-
-  width: 300px;
-  /* transform: translateY(-20px); */
- height: 300px;
-
-
-
-}
-.form {
-font-family: title;
-  font-size: 15px;
- 
+.btnsubmit{
+    background-color: rgba(52, 197, 149, 0.541);
 }
 
-.girl {
-
-  width: 100px;
-
+.notice {
+    color: rgb(78, 9, 9);
+    width: 150px;
+    height: fit-content;
+    word-wrap: break-word;
+    /* position: absolute; */
+align-self: flex-start;
+    font-size: 20px;
+    transform: translate(0,20px);
+   background-color: rgb(255, 177, 177);
+   border-radius: 10px;
+padding: 10px; 
 }
-
-
-div.form {
-  transform: translateY(-10px);
-}
-}
-    @media only screen and (min-height:850px){
-        .girl {
-            /* position: absolute; */
-            width: 200px;
-        
-        }
-    } 
-    @media only screen and (min-height:1200px){
-        .girl {
-            /* position: absolute; */
-            width: 250px;
-        
-        }
-        input.text.date {
-            font-size: 20px;
-          }
-          .demande {
-          
-            width: 350px;
-            /* transform: translateY(-20px); */
-           height: 400px;
-          
-          
-          
-          }
-          .form {
-          font-family: title;
-            font-size: 20px;
-           
-          }
-          button {
-            width: fit-content;
-            height:fit-content;
-            padding: 10px 20px;
-            align-self: flex-start;
-            background-color: rgba(255, 255, 255, 0.37);
-            border: 2px rgb(0, 0, 0) solid;
-            border-radius: 10px;
-            font-size: 22px;
-            transform: translate(-20px,90px);
-            font-family: title;
-            /* font-weight: 200px; */
-            /* font-size:large; */
-        
-        }
-        
-          
-    }

@@ -21,7 +21,7 @@ const routes : Routes =[
 
     {path : 'login', component : LoginComponent},
     {path : '' , component : GlobalComponent,
-     canActivate :[AuthGuard],
+    //  canActivate :[AuthGuard],
      children: [
     {path : 'modify/:id', component : ModifyComponent},
         {path : 'home' , component : HomeComponent},

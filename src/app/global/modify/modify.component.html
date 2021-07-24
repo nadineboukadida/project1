@@ -4,37 +4,46 @@
 <div class="container">
     <form #myform ="ngForm">
     <div class="measures">
-        <h1>Edit</h1>
+        <div class="titles">
+        <h1>Request from :</h1>
+        <h3>Nadine boukadida</h3>
+    </div>
 
        
     <!-- <img class="girl1" src="/assets/svgadd/girl.svg" alt=""> -->
     
        
     <div class="demande">
-        <div class="form">
+       
             <div class="form1">
-            <div class="div-mail">
-            <input class="text" type="text" 
-            name="name" autocomplete="off" required 
-            [ngModel]="demande.name"
-            disabled
-
-            >
-            <label for="email" class="label-mail">
-                <span class="span-mail">Demande :</span>
-            </label>
+            <div class="text">
+                <h3>Note:</h3>
+           <p > attestation de paies et attestation de tjeaed</p>
+            
+        
         </div>
-        <div class="div-mail div2">
-            <input class="text date"
-            [ngModel]="demande.date"
-             type="date" name="date" autocomplete="off" required
-         
-            >
-            <label for="email" class="label-mail">
-                <span class="span-mail datespan">date</span>
-            </label>
-        </div>
+      
     </div>
+    
+    </div>
+    <div class="demande2">
+
+        <div class="form1">
+
+    <div class="text1">
+        <h3>Date:</h3>
+     
+       <p > 12/07/2021</p>
+       
+    </div>
+    </div>
+</div>
+    
+    
+
+    <div class="demande1">
+        <div class="form">
+            
         <div class="form2">
         <ul>
             <li
@@ -92,19 +101,30 @@
     </div>
         
         <div class="submit">
-            <img class="girl" src="/assets/svgadd/girl.svg" alt="">
+            <img class="girl" src="/assets/modify/girl.svg" alt="">
+            <div class="btns">
+         
             <button 
-        
+        *ngIf="level3"
          (click)="accept()"
             class="btnsubmit">Accept</button>
 
             <button 
-       
+       *ngIf="level4"
          (click)="close()"
            
             class="btnsubmit1">Close</button>
-    
+        </div>
+            <button 
+       *ngIf="level2"
+            (click)="workonit()"
+              [ngClass]="{workonit: !level2}"
+               class="btnwork">Work on it</button>
      
+               <p
+               class="notice"
+               *ngIf="notice"
+               >{{text}}</p>
     
     </div>
     </div>

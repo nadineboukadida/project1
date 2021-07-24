@@ -72,6 +72,13 @@ export class DemandeService {
         .doc(id)
         .set(data,{ merge: true }))
 }
+updateadmin(data:Iadmin,id){
+  return( this.firestore
+      .collection("demands")
+      .doc(this.loginservice.userID).collection('collection')
+      .doc(id)
+      .set(data,{ merge: true }))
+}
 
   getdemand(id){
     return this.firestore.collection('demands').doc(this.loginservice.userID)
@@ -130,10 +137,17 @@ export interface IDemandes {
   level : number ;
   type : string;
   date ?: string;
-  docid?:string
+  docid?:string;
+  admin?:string
 }
 export interface ILevel {
   level : number
 }
+
+export interface Iadmin {
+  level : number,
+  admin:string
+}
+
 
 
