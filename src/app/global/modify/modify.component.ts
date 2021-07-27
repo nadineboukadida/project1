@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DemandeService, IDemandes } from 'src/app/service/demande.service';
+import { AdminService } from 'src/app/service/admin.service';
+import { DemandeService, IDemandes, User } from 'src/app/service/demande.service';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -24,25 +25,31 @@ notice=false;
 
     final: { level: number; };
     type: string="";
-  update: { level: number; admin: string; };
+  update: { level: number; admin: string;uid:string };
   text: string="loremloremloremloremlorem"
+  personne: User;
   
   
     constructor(
       private router: Router,
       private loginservice : LoginService,
       private demandeservice : DemandeService,
-      private activatedRoute : ActivatedRoute
+      private activatedRoute : ActivatedRoute,
+      private adminservice :AdminService
     ) { }
   
     ngOnInit(): void {
       this.activatedRoute.params.subscribe(
         (params)=> {
-      this.getdemande(params.id);
-
+      this.getdemande(params.id,params.uid);
+console.log('params', params)
         }
       )
+   
+  
 
+        setTimeout(() => {
+        }, 2000);
       
     
   
@@ -107,17 +114,19 @@ this.level4=true
   
   
   
-     getdemande(id){
-   this.demandeservice.getdemand(id).subscribe(
+     getdemande(id,uid){
+   this.demandeservice.getdemand1(id,uid).subscribe(
       (res:IDemandes) => {
+console.log('res', res)
        
         this.demande=res
-        console.log(this.demande)
       }
-    // console.log(this.demande)
+   
    )
    setTimeout(()=>{ 
-   this.check()}, 1000)
+   this.check()
+   this.getname()
+  }, 1000)
   
   
   
@@ -127,7 +136,6 @@ this.level4=true
   
     select1 (){
       this.selected1=!this.selected1;
-      console.log('1', this.selected1)
     }
     select2 (){
       this.selected2=!this.selected2;
@@ -135,7 +143,6 @@ this.level4=true
     }
     select3 (){
       this.selected3=!this.selected3;
-      console.log('3', this.selected3)
   
     }
     select4 (){
@@ -159,7 +166,7 @@ this.level4=true
       level:4
      }
     this.demandeservice.updatelevel(this.final,this.demande.docid);
-     console.log('updated')
+  
    }
    workonit(){
     this.level2=false;
@@ -167,10 +174,23 @@ this.level4=true
      this.level3=true;
      this.level4=true ;
      this.update ={
+       uid:this.demande.uid,
        level:2,
        admin: this.loginservice.userID
      }
-     this.demandeservice.updateadmin(this.update,this.demande.docid)
-
-   }
+     this.demandeservice.updateadmin(this.update,this.demande.docid).then(()=> 
+    { 
+      setTimeout(()=> this.adminservice.addDemandinAdmin(this.demande) ,1000)
+    
+    })
+   
   }
+getname(){
+  
+  this.demandeservice.getuser(this.demande.uid).subscribe(
+      (res:User) =>{ this.personne=res
+    
+      });
+
+}
+}

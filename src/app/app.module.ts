@@ -28,7 +28,11 @@ import { AdmnComponent } from './global/admin/admn/admn.component';
 import { HomeUserComponent } from './global/admin/home-user/home-user.component';
 import { ElementUserComponent } from './global/admin/home-user/element-user/element-user.component';
 import { ModifyComponent } from './global/modify/modify.component';
-import { TabadminComponent } from './global/tabadmin/tabadmin.component';
+import { TabadminComponent } from './globaladmin/tabadmin/tabadmin.component';
+import { GlobaladminComponent } from './globaladmin/globaladmin.component';
+import { WorkingonComponent } from './globaladmin/workingon/workingon.component';
+import { ElementWorkComponent } from './globaladmin/workingon/element-work/element-work.component';
+import { MynoticeComponent } from './mynotice/mynotice.component';
 // import { ElementUserComponent } from './global/admin/homeUser/element-user/element-user.component';
 @NgModule({
   declarations: [
@@ -52,7 +56,10 @@ import { TabadminComponent } from './global/tabadmin/tabadmin.component';
     HomeUserComponent,
     ElementUserComponent,
     ModifyComponent,
-    TabadminComponent
+    TabadminComponent,
+    GlobaladminComponent,
+    WorkingonComponent,
+    ElementWorkComponent,MynoticeComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,11 @@ import { PositionService } from 'src/app/service/position.service';
 export class HomeUserComponent implements OnInit {
   demandes: IDemandes[] = [];
   user:User;
+  current: IDemandes[];
+  selected1: boolean;
+  selected2: boolean;
+  selected3: boolean;
+  selected4: boolean;
   constructor(private demandeService:DemandeService , 
     private positionservice : PositionService, private router: Router,
     private activatedRoute : ActivatedRoute, private userservice: PersonneService
@@ -51,11 +56,50 @@ export class HomeUserComponent implements OnInit {
      ...demand.payload.doc.data() as IDemandes,
              id : demand.payload.doc.id
           } as IDemandes;
-        });
+        })
+        this.current=this.demandes;
       });
     ;
+    }
 
-    console.log(this.demandes)
+new(){
+  this.current= this.demandes.filter(demand => demand.level ==1)
+console.log('clicked')
+  this.selected4=true ;
+  this.selected1=false;
+  this.selected2=false;
+  this.selected3=false;
+}
+
+  working(){
+    this.current= this.demandes.filter(demand => demand.level ==2)
+    this.selected1=true;
+    this.selected2=false;
+    this.selected3=false;
+    this.selected4=false;
+  
   }
+    ok (){
+      this.current= this.demandes.filter(demand => demand.level ==3)
+      this.selected2=true;
+    this.selected1=false;
+    this.selected4=false;
+
+    this.selected3=false;
+  
+  
+  
+    }
+  closed(){
+    this.current= this.demandes.filter(demand => demand.level ==4)
+    this.selected1=false;
+    this.selected2=false;
+    this.selected3=true;
+    this.selected4=false;
+
+  
+  
+  }
+  
 }
 

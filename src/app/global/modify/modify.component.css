@@ -2,7 +2,7 @@
     /* opacity: 0; */
     top: 0;
     position: absolute;
-    z-index: 5000;
+    z-index: 600;
     transform: translateY(-80px);
     width: 100vw;
     height: 40vh;
@@ -17,7 +17,7 @@ background: linear-gradient(87deg,
 .container {
     width: 100vw;
     height: 100vh;
-    background-image: url(/assets/modify/background.svg);
+    /* background-image: url(/assets/modify/background.svg); */
     position: relative;
   z-index: 5001;
   background-size: cover;
@@ -26,6 +26,7 @@ background: linear-gradient(87deg,
   position: absolute;
     z-index: 500;
 }
+
 @font-face {
     font-family: title;
     src: url(/assets/NexaLight.otf);
@@ -59,14 +60,14 @@ background: linear-gradient(87deg,
 
 .demande {
     background-color: rgba(175, 203, 255, 0.514);
-   background-image:url(/assets/modify/box1.svg) ;
+   background-image:url(/assets/modify/box.svg) ;
     /* margin-top: 70px; */
     background-size: cover;
     font-family: title;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     /* border: 2px solid rgb(0, 0, 0); */
     width: fit-content;
     transform: translateY(20px);
@@ -233,6 +234,9 @@ button {
 .form2 {
     width: 100%;
 }
+p{
+    word-break: break-word;
+}
     
     .form2 ul {
         list-style-type: none;
@@ -304,7 +308,7 @@ flex-direction: column;
 .btnwork{
     background-color: rgb(143, 143, 143);
     /* position: absolute; */
-    z-index: 50000;
+    z-index: 600;
     /* transform: translate(0,220px); */
     transition-duration: 1000;
 align-self: flex-start;
@@ -325,7 +329,7 @@ box-shadow: 2px -1px 16px -2px rgb(196, 196, 196);
     align-items: center;
     width: fit-content;
     height:100%;
-    align-self: flex-start;
+    align-self: center;
     transform: translateY(-20px);
 }
 .btnsubmit1,.btnsubmit {
@@ -334,11 +338,11 @@ box-shadow: 2px -1px 16px -2px rgb(196, 196, 196);
     padding: 7px 12px;
     margin: 2px;
     /* transform: translate(-170px,50px); */
-    background-color: rgb(219, 136, 136);
+    background-color:#e66565;
 
 }
 .btnsubmit{
-    background-color: rgba(52, 197, 149, 0.541);
+    background-color: rgba(31, 121, 91, 0.541);
 }
 
 .notice {
@@ -349,8 +353,70 @@ box-shadow: 2px -1px 16px -2px rgb(196, 196, 196);
     /* position: absolute; */
 align-self: flex-start;
     font-size: 20px;
-    transform: translate(0,20px);
+    transform: translate(-70vw,20px);
    background-color: rgb(255, 177, 177);
    border-radius: 10px;
 padding: 10px; 
+transition-duration: 1500;}
+.noticeshow {
+    transform: translate(0,20px);
+
+
+
 }
+
+
+@media only screen and (min-width: 700px){
+       
+    .measures{
+        
+    margin-top: 60px;
+    /* width: 100vw;
+    height: 100vh; */
+    display: flex;
+    /* justify-content: flex-start; */
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transform: translateY(-40px);
+        /* margin-top: 30px; */
+        justify-content: center;
+    }
+    .demande {
+        align-self: center;
+transform: translate(-150px,20px);
+    }
+  
+.girl {
+    width: 200px;
+}
+
+.notice {
+    color: rgb(78, 9, 9);
+    width: 200px;
+    height: fit-content;
+    word-wrap: break-word;
+    /* position: absolute; */
+align-self: flex-start;
+    font-size: 22px;
+    transform: translate(-100vw,90px);
+   background-color: rgb(255, 177, 177);
+   border-radius: 10px;
+padding: 10px; 
+transition: transform 5000ms;
+
+
+}
+.noticeshow {
+    transform: translate(0,20px);
+}
+  }
+   
+  .date{
+      font-size: 16px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  label {
+      font-family: title;
+
+  }

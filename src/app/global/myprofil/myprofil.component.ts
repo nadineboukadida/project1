@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DemandeService, User } from 'src/app/service/demande.service';
 import { LoginService } from 'src/app/service/login.service';
+import { NoticesService } from 'src/app/service/notices.service';
 
 @Component({
   selector: 'app-myprofil',
@@ -12,27 +13,30 @@ export class MyprofilComponent implements OnInit {
   disable:boolean=true ;
   personne : User;
   pic : string = "profil"
-  constructor( private demandeservice : DemandeService,private loginservice: LoginService) { }
+  constructor( private demandeservice : DemandeService,private loginservice: LoginService,
+    private noticeservice :  NoticesService){ }
 
   ngOnInit(): void {
     this.getpersonne()
-    console.log(this.loginservice.userID)
-   
-    console.log(this.pic)
+ 
   }
   getpersonne(){
-    this.demandeservice.getprofil().subscribe(
-      (res:User) =>{ this.personne=res
-    console.log(this.personne)
+    setTimeout(() => {
+       this.demandeservice.getprofil().subscribe(
+      (res:User) =>{ 
+        this.personne=res
     if (res.gender=="male") {
       this.pic= 'profil1'
     }
   }
     )
+    }, 2000);
+   
   }
   updateProfil(myform :{name :string , phone : string , cin : string}) {
     this.loginservice.updateProfil(myform);
-    console.log(myform)
+  this.noticeservice.changeMode({msg:"updated successfully", valid  :true})
+
   }
 
 

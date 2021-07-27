@@ -74,9 +74,7 @@ check(){
     (res:IDemandes) => {
      
       this.demande=res
-      console.log(this.demande)
     }
-  // console.log(this.demande)
  )
  setTimeout(()=>{ 
  this.check()}, 1000)
@@ -89,7 +87,6 @@ check(){
 
   select1 (){
     this.selected1=!this.selected1;
-    console.log('1', this.selected1)
   }
   select2 (){
     this.selected2=!this.selected2;
@@ -97,7 +94,6 @@ check(){
   }
   select3 (){
     this.selected3=!this.selected3;
-    console.log('3', this.selected3)
 
   }
   select4 (){
@@ -106,7 +102,6 @@ check(){
 
   onSubmit (myform: { name : string , 
     date :string}){
-   console.log(myform);
    
    if (this.selected1)
    {
@@ -134,7 +129,6 @@ check(){
       level:1
       
      }
-   console.log( this.final)
    this.demandeservice.updatedemande(this.final,this.demande.docid);
  }
  

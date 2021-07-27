@@ -1,0 +1,31 @@
+
+
+<div class="titles">
+    <h3>Requests you are working On :</h3>
+    <!-- <h3> {{user.email}}</h3> -->
+    <div class="sort">
+    <img 
+    [ngClass]="{selected: selected1}"
+    (click)="working()"
+    src="/assets/svg/working.svg">
+    <img 
+    [ngClass]="{selected: selected2}"
+
+    (click)="ok()"
+    
+    src="/assets/svg/ok.svg" alt="">
+    <img 
+    [ngClass]="{selected: selected3}"
+
+    (click) ="closed()"    src="/assets/svg/close.svg" alt="">
+    </div>
+</div>
+
+<div class="container-demande">
+
+<app-element-work
+    *ngFor="let box of current"
+    [demande]="box"
+    >
+</app-element-work>
+    </div>

@@ -3,6 +3,7 @@ import { DemandeService, IDemandes } from 'src/app/service/demande.service';
 import { DemandeModule } from 'src/app/model/demande/demande.module';
 import { PositionService } from 'src/app/service/position.service';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,8 +12,9 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   demandes: IDemandes[] = [];
   demandesComplete: IDemandes[] =[];
+  b: boolean=false;
   constructor(private demandeService:DemandeService , 
-    private positionservice : PositionService
+    private positionservice : PositionService, private loginservice : LoginService
     
     ) 
     {
@@ -24,14 +26,20 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getdemandes()
-    
-  }
-
-
-
+  
+   this.getdemandes()
+  
+}
   getdemandes() :void{
-    this.demandeService.getdemandes()
+  
+    setTimeout(() => {
+      
+  console.log('1',localStorage.getItem('user'))
+
+    this.demandeService.firestore.collection('demands')
+    .doc(localStorage.getItem('user'))
+    .collection('collection' ,ref=> ref.where("type","<","4")).snapshotChanges()
+    
     .subscribe(
       (res)=> {
       
@@ -43,9 +51,15 @@ export class HomeComponent implements OnInit {
              id : demand.payload.doc.id
           } as IDemandes;
         });
-      });
-    ;
+      })
+   
+    
+    }, 4000);
 
-    console.log(this.demandes)
+      
+    }
+
+
   }
-}
+
+

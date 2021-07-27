@@ -1,0 +1,19 @@
+
+<div class="notice" 
+[ngClass]="{show1: exist, display : exist1
+   , danger : !notice.valid,valid : notice.valid,
+black : black}"
+
+>
+   <img 
+   class="check"
+
+   src="assets/notice/check{{path}}.png" alt="">
+    <h5
+    [ngClass]="{titlevalid:notice.valid, titledanger:!notice.valid, titleblack:black}"
+    >{{notice.msg}}</h5>
+   <img 
+   class="close"
+   src="assets/notice/close{{path}}.png" alt="">
+
+</div>

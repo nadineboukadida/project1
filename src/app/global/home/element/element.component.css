@@ -98,6 +98,7 @@ overflow:hidden;
         margin: 1%;
         font-family: title;
         font-size: 16px;
+        word-break: break-word;
         /* white-space:pre-line; */
         /* transform: translateY(-0.2em); */
     }

@@ -1,0 +1,17 @@
+.noticecontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+ background-color: rgba(224, 224, 18, 0);
+    position: absolute;
+    top: 0;
+    height: 180px;
+    width: 100vw;
+    z-index: 99999999;
+    overflow: hidden;
+    pointer-events: none;
+}
+.hide {
+    transform: translateY(-60px);
+}

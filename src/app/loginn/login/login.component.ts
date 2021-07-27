@@ -7,6 +7,7 @@ import { PersonneModule } from 'src/app/model/personne/personne.module';
 import { DemandeService } from 'src/app/service/demande.service';
 import { LoginService } from 'src/app/service/login.service';
 import { Router } from '@angular/router';
+import { NoticesService } from 'src/app/service/notices.service';
 
 @Component({
   selector: 'app-login',
@@ -19,17 +20,39 @@ export class LoginComponent implements OnInit {
 signupImage : boolean ;
   loginImage: boolean;
   signupsvg: boolean = false;
+  notice: any;
+  exist: boolean;
+  valid : boolean
+  path: string;
  
 
   constructor(private http: HttpClient, 
     private loginservice : LoginService, 
-   private  demandeservice : DemandeService) { 
+   private  demandeservice : DemandeService,
+   private noticeservice:NoticesService) { 
     this.signupImage = false;
     this.loginImage = false;
   }
 
   ngOnInit(): void {
+   
+    this.noticeservice.currentnotice.subscribe
+    (n => {this.notice=n;
+      if (n.msg!="")
+    {this.valid=n.valid
+      if(!this.valid){
+        this.path="red"
+      }
+      else {this.path="green"}
 
+      this.exist=true
+
+    setTimeout(() => {
+      this.exist=false
+    }, 3000);
+  }})
+  
+  
   }
 
   signup(){

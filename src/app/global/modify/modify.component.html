@@ -1,4 +1,4 @@
-<div class="style"></div>
+
 
 <!-- <img class="container1" src="/assets/svg/background-update.svg"> -->
 <div class="container">
@@ -6,7 +6,9 @@
     <div class="measures">
         <div class="titles">
         <h1>Request from :</h1>
-        <h3>Nadine boukadida</h3>
+        <h3>
+            {{personne.email}}
+        </h3>
     </div>
 
        
@@ -18,7 +20,9 @@
             <div class="form1">
             <div class="text">
                 <h3>Note:</h3>
-           <p > attestation de paies et attestation de tjeaed</p>
+           <p >
+                {{demande.name}}
+            </p>
             
         
         </div>
@@ -33,7 +37,10 @@
     <div class="text1">
         <h3>Date:</h3>
      
-       <p > 12/07/2021</p>
+       <p
+       class="date">
+       {{demande.date}}
+    </p>
        
     </div>
     </div>
@@ -122,6 +129,7 @@
                class="btnwork">Work on it</button>
      
                <p
+               [ngClass]="{noticeshow: notice}"
                class="notice"
                *ngIf="notice"
                >{{text}}</p>

@@ -4,6 +4,7 @@ import { DemandeService } from 'src/app/service/demande.service';
 import { LoginService } from 'src/app/service/login.service';
 import { PositionService } from 'src/app/service/position.service';
 import { Router } from '@angular/router';
+import { NoticesService } from 'src/app/service/notices.service';
 
 @Component({
   selector: 'app-add',
@@ -16,10 +17,11 @@ selected2 : boolean = false ;
 selected3 : boolean = false ;
 selected4 : boolean = false ;
 type : string ='';
- final !: {name :string ,type :string , level : number, date} ;
+ final !: {name :string ,type :string , level : number, date,uid} ;
 
   constructor(private positionservice: PositionService,
-    private demandeservice : DemandeService, private loginservice: LoginService
+    private demandeservice : DemandeService, private loginservice: LoginService,
+    private noticeservice:NoticesService
     ) { 
 
   }
@@ -76,12 +78,14 @@ onSubmit (myform: { name : string ,
   this.final={name : myform.name ,
       date:myform.date,
      type : this.type ,
-     level:1
+     level:1,
+     uid:this.loginservice.userID
      
     }
   console.log( this.final)
   console.log(this.loginservice.userID);
   this.demandeservice.addDemande(this.final);
+  this.noticeservice.changeMode({msg:"Just added it!", valid  :true})
 }
 
 

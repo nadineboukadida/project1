@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
 import { LoginService } from 'src/app/service/login.service';
+import { NoticesService } from 'src/app/service/notices.service';
 // import * as anime from '../../../../node_modules/animejs'
 declare var anime: any;
 @Component({
@@ -9,7 +10,7 @@ declare var anime: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements AfterViewInit{
+export class HeaderComponent implements AfterViewInit, OnInit{
 frame : boolean = false ;
   @ViewChild('myDiv')
   myDiv!: ElementRef<HTMLElement>;
@@ -18,11 +19,15 @@ frame : boolean = false ;
 
   constructor(private loginservice : LoginService,
     private adminservice:AdminService,
-    private router: Router) { }
+    private router: Router,
+    private noticeservice : NoticesService) { }
+ngOnInit(){
+  this.adminservice.currentmode.subscribe
+  (msg => this.adminTab=msg)
 
+}
   ngAfterViewInit(): void {
-    this.adminservice.currentmode.subscribe
-    (msg => this.adminTab=msg)
+   
   //  this.morph=  anime.timeline({loop: false})
   //   .add({
   //     targets: '.morph',
@@ -66,7 +71,9 @@ this.frame= !this.frame;
   admin(){
     this.triggerFalseClick()
   this.adminservice.changeMode(true)
-this.router.navigate(['/admin'])
+this.router.navigate(['/admin/admin'])
+this.noticeservice.changeMode({msg:"admin mode ON", valid  :true, admin  :true})
+
   }
 
   user(){

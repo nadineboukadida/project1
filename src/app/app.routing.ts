@@ -13,6 +13,8 @@ import { ModifyComponent } from './global/modify/modify.component';
 import { MyprofilComponent } from './global/myprofil/myprofil.component';
 import { NotificationComponent } from './global/notification/notification.component';
 import { ProfilComponent } from './global/profil/profil.component';
+import { GlobaladminComponent } from './globaladmin/globaladmin.component';
+import { WorkingonComponent } from './globaladmin/workingon/workingon.component';
 import { LoginComponent } from './loginn/login/login.component';
 
 const routes : Routes =[
@@ -21,19 +23,24 @@ const routes : Routes =[
 
     {path : 'login', component : LoginComponent},
     {path : '' , component : GlobalComponent,
-    //  canActivate :[AuthGuard],
+     canActivate :[AuthGuard],
      children: [
-    {path : 'modify/:id', component : ModifyComponent},
         {path : 'home' , component : HomeComponent},
         {path : 'profil' , component : MyprofilComponent},
         {path : 'add' , component : AddComponent},
-    {path : 'admin' , component : AdminComponent},
 
         {path : 'notif' , component : NotificationComponent},
         {path : 'history' , component: HistoriqueListComponent},
         {path : 'details/:id' , component: DetailsComponent},
-         {path:'admnHome/:id', component:HomeUserComponent}
         
+    ]},
+    {path: 'admin', component:GlobaladminComponent,children: [
+        {path : 'admin' , component : AdminComponent},
+        {path:'admnHome/:id', component:HomeUserComponent},
+        {path : 'workingon', component :WorkingonComponent},
+
+        {path : 'modify/:id/:uid', component : ModifyComponent}
+
     ]}
     
 

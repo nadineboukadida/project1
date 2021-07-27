@@ -1,33 +1,4 @@
 
-html,body {
-    height: 100%;
-    width: 100%;
-    /* overflow: hidden; */
-    font-family: title;
-    color: rgb(15, 15, 15);
-    font-weight: lighter;
-    font-size: 20px ;
-    overflow: hidden;
-   
-    margin: 0;
-  
-}
-
-
-.container { 
-    overflow:hidden;
-    height: 60%; 
-    width: 100%;
-    top: 0;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   background-color: aliceblue;
-    
-}
-
 
 span,h1 {
     font-family: title;
@@ -36,7 +7,8 @@ span,h1 {
     /* background-image: linear-gradient( 181deg,  rgba(225,109,245,1) 6.9%, rgba(78,248,231,1) 112.8% ); */
     /* background-image: linear-gradient( 111.8deg,  rgba(76,175,80,1) 0.1%, rgba(255,152,0,1) 100.2% ); */
     background-color: #52ACFF;
-background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
+background-image: linear-gradient(100deg, #52ACFF 25%, #d3bbff 100%);
+pointer-events: none;
 
     /* background-repeat: no-repeat; */
     background-size: cover;
@@ -45,7 +17,7 @@ background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
     border-radius: 90%;
     transition-duration: 1500ms;
     transition-property:transform;;
-    transform:translate(-10%,15%);
+    transform:translate(-200px,200px);
     position: absolute;
     z-index: 0;
   
@@ -55,14 +27,7 @@ background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
 input:checked + .image{
     transform: translate(-74%,-60%);
 }
-/* svg {
-    transform: translate(50%);
 
-}
-.svg{ transition-duration: 1000ms;}
-input:checked ~ .svg {
-    transform: translate(-50%);
-} */
 span {
     font-size: 20px;
 }
@@ -71,7 +36,7 @@ span {
     color: azure;
     font-size: 25px;
     font-weight: 100;
-    transform: translateX(-20%);
+    /* transform: translateX(-20%); */
 }
 .title1 {
     font-family: title;
@@ -81,14 +46,7 @@ span {
     transform: translateX(-20%);
 }
 
-@font-face {
-    font-family: title;
-    src: url(/assets/NexaLight.otf);
-  }
-  @font-face {
-    font-family: subtitle;
-    src: url(/assets/CamptonLight.otf);
-  }
+
   .subtitle {
       font-family: subtitle;
       margin-top: 0;
@@ -111,30 +69,31 @@ span {
 
 
 /*  ***************** FORM ***************** */
+.first {
+ 
 
+}
 h1 {
     margin: 0;
+  
+
 }
 .form {
     z-index: 10;
-    height: 60%;
-    width: 100%;
+    /* height: 60%; */
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    position: absolute;
+    
     transition-duration: 1000ms;
     display: flex;
     flex-direction: column;
-    /* width: fit-content; */
+   
     align-items: center;
-  /* transform: translate(-10% ,90%); */
-  /* overflow: hidden; */
-  /* transform: translateY(40%); */
-top: 5%;
-  right: 10%;
+
 
 
   
@@ -151,6 +110,7 @@ input{
   outline: none;
   transform: translate(0,-7px);
   font-size: 16px;
+  z-index: 9999999999999;
 }
 .div-mail {
     position: relative;
@@ -259,12 +219,13 @@ a , .a, .signup{
 
 .proxym {
     background-image: url(/assets/proxym.png);
-    width: 50%;
-    position: absolute;
-    height: 10%;
+    width: 230px;
+    /* position: absolute; */
+    height: 100px;
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 50 ;
+    margin-bottom: 10px;
 }
 
 .signup {
@@ -278,28 +239,29 @@ z-index: 300;
 
 
 }
-
-img {
-    position: absolute;
-height: 50%;
-    width: 50%;
- transform: translate();
-
- bottom: 5em;
- right: 1em;
+.first {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+.signinimg {
+    width:200px;
+    align-self: flex-end;
+    margin: 5px;
  transition-duration: 1000ms;
 }
 
 
 .signupImage {
+    pointer-events: none;
 transform: translate(-74%,-60%);;
 }
 .signuptop {
     transform: translateY(190%);
 }
 .signupform {
-    transform: translateY(-130%);
-   
+    transform: translateY(100vh);
 }
 .signupsvg {
     transform: translateX(220%);
@@ -396,6 +358,62 @@ height: 30%;
     display: block;
 }
 
-.ng-touched.ng-invalid {
+.ng-touched.ng-invalid input {
    border-bottom: #ff8d8d 2px solid;
 }
+
+span.error {
+    background-color: rgb(255, 221, 221);
+    border-left: 5px solid red;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+
+}
+
+.titles {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+@media only screen and (max-height:715px){
+.signinimg {
+    width: 150px;
+}
+h1 {
+    font-size: 22px;
+}
+h1.title {
+    font-size: 20px;
+}
+
+}
+@media only screen and (min-height:715px){
+
+    .proxym {
+        margin-bottom: 50px;
+    }
+    .signinimg {
+        width: 230px ;
+    }
+}
+@media only screen and (min-width:600px){
+    .signinimg {
+        width: 300px;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    h1.title {
+        font-size: 25px;
+    }
+    p {
+        font-size : 18px;
+    }
+    }

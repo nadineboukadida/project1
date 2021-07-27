@@ -18,7 +18,7 @@ export class DemandeService {
   currentdocid: string;
   history : IDemandes[]=[];
   constructor( public firebaseAuth : AngularFireAuth ,
-    private firestore: AngularFirestore, private loginservice : LoginService) {
+    public firestore: AngularFirestore, private loginservice : LoginService) {
 
    
     
@@ -58,6 +58,9 @@ export class DemandeService {
    this.updateUserData(payload)
   }
 
+
+ 
+ 
   updatedemande(data:IDemandes,id){
       return( this.firestore
           .collection("demands")
@@ -75,16 +78,20 @@ export class DemandeService {
 updateadmin(data:Iadmin,id){
   return( this.firestore
       .collection("demands")
-      .doc(this.loginservice.userID).collection('collection')
+      .doc(data.uid).collection('collection')
       .doc(id)
       .set(data,{ merge: true }))
 }
 
   getdemand(id){
-    return this.firestore.collection('demands').doc(this.loginservice.userID)
-    .collection('collection').doc(id).valueChanges(
-    )
+    return this.firestore.collection('demands').doc(localStorage.getItem('user'))
+    .collection('collection').doc(id).valueChanges()
   }
+  getdemand1(id,uid){
+    return this.firestore.collection('demands').doc(uid)
+    .collection('collection').doc(id).valueChanges()
+  }
+
 
   //  getlist(){
   //    if (!this.userID) return(null);
@@ -92,33 +99,44 @@ updateadmin(data:Iadmin,id){
   //  }
    
    getdemandes (){
-    return this.firestore.collection('demands')
-    .doc(this.loginservice.userID)
-    .collection('collection' ,ref=> ref.where("type","<","4")).snapshotChanges()
-  
-   }
+    // this.loginservice.getstate();
+
+}
+   
+    
+   
    gethistory(){
      return this.firestore.collection('demands')
-     .doc(this.loginservice.userID).collection('collection'
-     ,ref=> ref.where("type","==","4")).snapshotChanges()   
+     .doc(localStorage.getItem('user')).collection('collection'
+     ,ref=> ref.where("level","==",4)).snapshotChanges()   
    }
 
    getuserdemandes(id){
     return this.firestore.collection('demands')
     .doc(id)
-    .collection('collection' ,ref=> ref.where("type","<","4")).snapshotChanges()
+    .collection('collection' ,ref=> ref.where("level","<",4)).snapshotChanges()
    }
+
+
 
   //  getdemand (){
   //    return this.firestore.
   //  }
    getprofil (){
-    return this.firestore.collection('users').doc(this.loginservice.userID).valueChanges()
+    return this.firestore.collection('users').doc(localStorage.getItem('user')).valueChanges()
 
    }
    getnumber(){
      return this.demandes.length;
 
+}
+
+getuser (id){
+  return this.firestore.collection('users')
+  .doc(id)
+  .valueChanges()
+
+ 
 }}
 
 export interface User {
@@ -132,8 +150,8 @@ export interface User {
 }
 
 export interface IDemandes {
-  id?: string ; 
-  name :string;
+  uid?: string ; 
+  name:string;
   level : number ;
   type : string;
   date ?: string;
@@ -146,7 +164,9 @@ export interface ILevel {
 
 export interface Iadmin {
   level : number,
-  admin:string
+  admin:string,
+
+  uid:string
 }
 
 

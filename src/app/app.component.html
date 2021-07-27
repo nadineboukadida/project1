@@ -1,3 +1,13 @@
+<div class="noticecontainer"
+[ngClass]="{hide: hide}"
+>
+    <app-mynotice
+    *ngFor="let notice of notices"
+    [notice]=notice
+    >
+    
+</app-mynotice>
+</div>
 <!-- <app-login></app-login> -->
 <!-- <app-global></app-global> -->
 <router-outlet></router-outlet>

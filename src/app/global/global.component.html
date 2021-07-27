@@ -1,15 +1,26 @@
 
+<!-- <div class="notice" 
+[ngClass]="{show: exist, danger : !notice.valid}"
 
+>
+   <img 
+   class="check"
+   src="assets/notice/check.png" alt="">
+    <h5>{{notice.msg}}</h5>
+   <img 
+   class="close"
+   src="assets/notice/close.png" alt="">
+
+</div> -->
 <div class="container">
 <app-header></app-header>
 <!-- <app-home></app-home> -->
+<div class="style">  </div>
+
 <router-outlet></router-outlet>
 
   
-<!-- <app-tab
-*ngIf="!adminTab"
-></app-tab> -->
-<app-tabadmin></app-tabadmin>
-<!-- *ngIf="adminTab"
-></app-tabadmin> -->
+
+<app-tab></app-tab>
+
 </div>

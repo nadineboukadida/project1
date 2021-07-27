@@ -6,6 +6,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { IDemandes, User } from './demande.service';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { NoticesService } from './notices.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,27 +19,28 @@ export class LoginService {
   userID : string= null;
 
   constructor( public firebaseAuth : AngularFireAuth ,
-    private firestore: AngularFirestore) {
+    private firestore: AngularFirestore, private noticeservice:NoticesService) {
 
-    this.firebaseAuth.authState.subscribe(user => {
-      if(user) this.userID= user.uid;
-    });
-    
-    this.user= this.firebaseAuth .authState.pipe(switchMap(user => {
-      if (user) {
-        return this.firestore.doc<User>(`users/${user.uid}`).valueChanges()
-      }
-      else {
-        
-        return (null)
-      }
-    })
-      
-      )
+ this.firebaseAuth.authState.subscribe(user => {
+      if(user)
+      {
+localStorage.setItem('user',user.uid) 
+this.userID= localStorage.getItem('user');
+this.noticeservice.changeMode({msg :"you just logged in ! welcome :)",valid :true})
 
-   }
+}
+else {
+this.userID= localStorage.getItem('user');
+
+
+}
+  
+   
+   })}
+
+
    get authenticated():boolean {
-    return this.userID !==null ;
+    return localStorage.getItem('user') !==null ;
    }
 
    updateUserData(user, name : string , gender : string) {
@@ -64,15 +66,15 @@ export class LoginService {
   await  this.firebaseAuth.signInWithEmailAndPassword(email,pass)
   .then (res => {
     this.isLoggedin= true ;
-  })
-  return new Promise((resolve, reject) => {})
+  },
+  (err) =>{console.log("log in error :", err.message)})
+  
     
 }
 
 async createUser(email : string , pass : string, name : string, gender : string){
       await  this.firebaseAuth.createUserWithEmailAndPassword(email,pass)
       .then (res => {
-        console.log(res.user)
     this.updateUserData(res.user, name, gender)
     this.isLoggedin= true ;
       })
@@ -83,6 +85,8 @@ async createUser(email : string , pass : string, name : string, gender : string)
       this.firebaseAuth.signOut();
       localStorage.removeItem('user');
       this.userID=null;
+  this.noticeservice.changeMode({msg:"disconnected successfully ! See you soon :)", valid  :true})
+
     }
     
     updateProfil(data) {
@@ -90,6 +94,8 @@ async createUser(email : string , pass : string, name : string, gender : string)
           .collection("users")
           .doc(this.userID)
           .set(data, { merge: true }))
+
+          
    }
 
 }

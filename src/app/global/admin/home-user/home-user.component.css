@@ -8,10 +8,10 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        padding-top: 70px;
+        padding-top: 30px;
         padding-bottom: 70px;
         z-index: 100;
-        background-image: url(/assets/svgadd/background.svg);
+        /* background-image: url(/assets/svgadd/background.svg); */
 
     /* background-color: rgba(149, 183, 255, 0.342); */
 /* overflow: scroll; */
@@ -30,18 +30,40 @@ h3 {
     color: aliceblue;
     flex-wrap: wrap;
 }
-.style {
-    top: 0;
-    position: absolute;
-    z-index: -1;
-    transform: translateY(-80px);
-    width: 100vw;
-    height: 40vh;
-    background: rgb(164,209,255);
-background: linear-gradient(87deg,
- rgb(164, 209, 255)
-  0%,
-   rgb(43, 47, 107) 100%);
-   background-repeat: repeat;
-   background-size: contain;
+
+img {
+    width: 60px;
+    padding: 10px 20px;
+
+}
+.sort {
+    width: 100%;
+display: flex;
+justify-content: space-around;
+align-items: center;
+
+}
+.selected {
+    border-radius: 10px;
+    background-color: rgb(146, 146, 146);
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 700px){
+
+    h3 {
+        margin: 20px;
+        font-size: 45px;
+    }
+    .titles {
+        flex-direction: column;
+    }
 }

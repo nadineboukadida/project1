@@ -1,3 +1,7 @@
+
+<div class="first"
+
+>
 <div class="proxym"></div>
 <div class="image"
 [ngClass]="{signupImage: signupImage}"
@@ -9,22 +13,30 @@
    <div class="form"
    [ngClass]="{signupform: signupform}"
    >
-       <h1>Se Connecter</h1>
+       <h1>Log Into your account</h1>
     <div 
     
     class="div-mail">
         
     <input 
     ngModel 
-    type="text" name="email" autocomplete="off" required >
+    type="email" name="email" 
+    autocomplete="off" required
+    #myemail="ngModel"
+    >
     <label for="email" class="label-mail">
         <span class="span-mail">E-mail</span>
     </label>
 </div>
+<span
+class="error"
+*ngIf="!myemail.valid && myemail.touched"
+>Enter a valid Email</span>
 
   <div class="div-pass">
     <input 
     ngModel
+    #mypass="ngModel"
     required type="password" name="pass" autocomplete="off" >
     <label for="mdp" class="label-pass">
         <span class="span-pass">
@@ -32,6 +44,10 @@
         </span>
     </label>
 </div>
+<span
+class="error"
+*ngIf="!mypass.valid && mypass.touched"
+>Enter a valid Password</span>
 <button 
 
 
@@ -45,21 +61,23 @@ class="a" href="#">Login</button>
 
 <!-- ******************************************* SIGN UP LINK !!********************************* -->
 <div class="top"
+class="titles"
 [ngClass]="{signuptop: signuptop}"
 >
-  
-<h1 class="title">Vous etes Nouveau ?</h1>
-<h4 class="subtitle">Rejoignez nous maintenant !</h4>
+  <img class="signinimg"src="assets/file1.svg" alt=""
+[ngClass]="{signupsvg : signupsvg }"
+>
+<h1 class="title">Are you New app-header ?</h1>
+<h4 class="subtitle">Join us Now !</h4>
 <p 
 (click)="signup()"
 
 class="signup" href="#">Sign up</p>
+
 </div>
 
+</div>
 
-<img src="assets/file1.svg" alt=""
-[ngClass]="{signupsvg : signupsvg }"
->
 <app-signup
 [signupsvg]="signupsvg"
 [signuptop]="signuptop"

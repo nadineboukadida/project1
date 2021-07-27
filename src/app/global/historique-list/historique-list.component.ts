@@ -22,7 +22,6 @@ export class HistoriqueListComponent implements OnInit {
 this.demandeservice.gethistory()
    .subscribe(
     (res)=> {
-      
       this.demandes= res.map (
       (demand)=> { 
         return {
