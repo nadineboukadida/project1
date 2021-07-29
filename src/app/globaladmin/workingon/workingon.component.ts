@@ -36,7 +36,7 @@ export class WorkingonComponent implements OnInit {
     
      
   
- this.positionservice.changePosition("home");
+//  this.positionservice.changePosition("home");
    
    }
 

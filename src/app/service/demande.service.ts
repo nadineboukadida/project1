@@ -22,16 +22,6 @@ export class DemandeService {
 
    
     
-    this.loginservice.user= this.firebaseAuth .authState.pipe(switchMap(user => {
-      if (user) {
-        return this.firestore.doc<IDemandes>( `demands/${user.uid}`).valueChanges ()
-      }
-      else {
-        return (null)
-      }
-    })
-      
-      )
 
    }
 
@@ -71,7 +61,7 @@ export class DemandeService {
   updatelevel(data:ILevel,id){
     return( this.firestore
         .collection("demands")
-        .doc(this.loginservice.userID).collection('collection')
+        .doc(localStorage.getItem('user')).collection('collection')
         .doc(id)
         .set(data,{ merge: true }))
 }
@@ -117,7 +107,11 @@ updateadmin(data:Iadmin,id){
     .collection('collection' ,ref=> ref.where("level","<",4)).snapshotChanges()
    }
 
-
+   getuserdemandes1(id){
+    return this.firestore.collection('demands')
+    .doc(id)
+    .collection('collection').snapshotChanges()
+   }
 
   //  getdemand (){
   //    return this.firestore.
@@ -145,8 +139,9 @@ export interface User {
   name ?: string;
   gender:string;
   cin?:string;
-  phone?:string
-  // 
+  phone?:string;
+  fcmtokens?:any
+  
 }
 
 export interface IDemandes {

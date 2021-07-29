@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NotificationService } from 'src/app/service/notification.service';
 import { PositionService } from 'src/app/service/position.service';
 
 @Component({
@@ -10,13 +11,23 @@ export class TabComponent implements OnInit {
 home : boolean = false;
 add : boolean = false;
 notif : boolean = false;
- positionservice: PositionService = new PositionService;
+
+
+
   position: string ="";
-  constructor( positionservice : PositionService) {
-this.position= positionservice.position;
+  pic: string="notifgray"
+  constructor( private positionservice : PositionService,
+    private notificationservice: NotificationService) {
+this.notificationservice.getpic().subscribe((pic)=> this.pic = pic)
+
+    // this.positionservice.currentpos.subscribe((pos)=> {this.position=pos
+  
+    // })
    }
 
   ngOnInit(): void {
+
+
     if (this.position=="home") {
       this.home=true;
     }
@@ -31,20 +42,23 @@ this.position= positionservice.position;
     this.home=true;
     this.notif=false;
     this.add=false;
- this.positionservice.changePosition("home");
+ this.positionservice.changeMode("home");
+ 
   }
   addClick(){
     this.add=true;
     this.home=false;
     this.notif=false;
- this.positionservice.changePosition("add");
+    this.positionservice.changeMode("add")
+ 
 
   }
   notifClick(){
     this.notif=true;
     this.home=false;
     this.add=false;
- this.positionservice.changePosition("notif");
+ this.positionservice.changeMode("notif")
+ this.notificationservice.setpic("notif")
 
 
   }

@@ -79,15 +79,22 @@
         
         </div>
     </div>
-    
+    <img 
+    class="level"
+    src="/assets/svg/{{picture}}.svg" alt="">
     
     
     
     </div>
         
-        <div class="submit">
+
+
+        <div class="submit"
+        *ngIf="update"
+        >
             <img class="girl" src="/assets/svgadd/girl.svg" alt="">
             <button 
+
         (click)="onSubmit(myform.value)"
             routerLink='/home' 
             class="btnsubmit">Update</button>

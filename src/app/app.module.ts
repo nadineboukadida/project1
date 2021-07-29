@@ -34,6 +34,8 @@ import { WorkingonComponent } from './globaladmin/workingon/workingon.component'
 import { ElementWorkComponent } from './globaladmin/workingon/element-work/element-work.component';
 import { MynoticeComponent } from './mynotice/mynotice.component';
 // import { ElementUserComponent } from './global/admin/homeUser/element-user/element-user.component';
+import {AngularFireMessagingModule} from '@angular/fire/messaging';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +75,8 @@ import { MynoticeComponent } from './mynotice/mynotice.component';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }), AngularFireModule.initializeApp(environment.firebaseConfig)
-    ,AngularFirestoreModule 
+    ,AngularFirestoreModule , 
+    AngularFireMessagingModule
 
   ],
   providers: [AuthGuard],

@@ -14,7 +14,7 @@ export class TabadminComponent implements OnInit {
     position: string ="";
   // positionservice: any;
     constructor( private positionservice : PositionService) {
-  this.position= positionservice.position;
+  // this.position= positionservice.position;
      }
   
     ngOnInit(): void {
@@ -32,20 +32,19 @@ export class TabadminComponent implements OnInit {
       this.home=true;
       this.notif=false;
       this.add=false;
-   this.positionservice.changePosition("home");
+   
     }
     addClick(){
       this.add=true;
       this.home=false;
       this.notif=false;
-   this.positionservice.changePosition("add");
+   
   
     }
     notifClick(){
       this.notif=true;
       this.home=false;
       this.add=false;
-   this.positionservice.changePosition("notif");
   
   
     }

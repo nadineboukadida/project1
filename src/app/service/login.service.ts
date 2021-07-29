@@ -15,28 +15,25 @@ export class LoginService {
   comptes : Compte []=[]
   isLoggedin: boolean=false;
   items: IDemandes[] =[];
-  user: Observable<any>
+  user: Observable<User>
   userID : string= null;
 
   constructor( public firebaseAuth : AngularFireAuth ,
     private firestore: AngularFirestore, private noticeservice:NoticesService) {
 
- this.firebaseAuth.authState.subscribe(user => {
-      if(user)
-      {
-localStorage.setItem('user',user.uid) 
-this.userID= localStorage.getItem('user');
-this.noticeservice.changeMode({msg :"you just logged in ! welcome :)",valid :true})
+    this.user= this.firebaseAuth .authState.pipe(switchMap(user => {
+        if (user) {
+          return this.firestore.doc<User>( `users/${user.uid}`).valueChanges ()
+        }
+        else {
+          return (null)
+        }
+      })
+        
+        )
+    
 
-}
-else {
-this.userID= localStorage.getItem('user');
-
-
-}
-  
-   
-   })}
+    }
 
 
    get authenticated():boolean {
@@ -59,13 +56,38 @@ this.userID= localStorage.getItem('user');
 
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
  
 
   async signin(email : string , pass : string){
 
   await  this.firebaseAuth.signInWithEmailAndPassword(email,pass)
   .then (res => {
-    this.isLoggedin= true ;
+ this.firebaseAuth.authState.subscribe(user => {
+  if(user)
+  {
+localStorage.setItem('user',user.uid) 
+this.userID= localStorage.getItem('user');
+this.noticeservice.changeMode({msg :"you just logged in ! welcome :)",valid :true})
+
+}
+
+
+
+})
   },
   (err) =>{console.log("log in error :", err.message)})
   
@@ -75,10 +97,11 @@ this.userID= localStorage.getItem('user');
 async createUser(email : string , pass : string, name : string, gender : string){
       await  this.firebaseAuth.createUserWithEmailAndPassword(email,pass)
       .then (res => {
+        console.log(res)
     this.updateUserData(res.user, name, gender)
     this.isLoggedin= true ;
       })
-      return new Promise((resolve, reject) => {})
+      
     }
 
     logout(){

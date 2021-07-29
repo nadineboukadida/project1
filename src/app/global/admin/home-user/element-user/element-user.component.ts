@@ -51,7 +51,6 @@ export class ElementUserComponent implements OnInit {
   }
 
   link(){
-    console.log("heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey")
       this.router.navigate(['/admin/modify', this.demande.docid, this.demande.uid])
     }
   

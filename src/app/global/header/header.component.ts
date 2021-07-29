@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
 import { LoginService } from 'src/app/service/login.service';
 import { NoticesService } from 'src/app/service/notices.service';
+import { PositionService } from 'src/app/service/position.service';
 // import * as anime from '../../../../node_modules/animejs'
 declare var anime: any;
 @Component({
@@ -16,11 +17,12 @@ frame : boolean = false ;
   myDiv!: ElementRef<HTMLElement>;
   morph: any;
   adminTab: boolean;
-
+isAuth = false ;
   constructor(private loginservice : LoginService,
     private adminservice:AdminService,
     private router: Router,
-    private noticeservice : NoticesService) { }
+    private noticeservice : NoticesService,
+    private positionservice: PositionService) { }
 ngOnInit(){
   this.adminservice.currentmode.subscribe
   (msg => this.adminTab=msg)
@@ -73,6 +75,7 @@ this.frame= !this.frame;
   this.adminservice.changeMode(true)
 this.router.navigate(['/admin/admin'])
 this.noticeservice.changeMode({msg:"admin mode ON", valid  :true, admin  :true})
+this.positionservice.changeMode("admn")
 
   }
 

@@ -2,7 +2,7 @@
 <div class="notice" 
 [ngClass]="{show1: exist, display : exist1
    , danger : !notice.valid,valid : notice.valid,
-black : black}"
+black : black, blue : blue , pink : pink , green: green ,red: red}"
 
 >
    <img 
@@ -10,7 +10,7 @@ black : black}"
 
    src="assets/notice/check{{path}}.png" alt="">
     <h5
-    [ngClass]="{titlevalid:notice.valid, titledanger:!notice.valid, titleblack:black}"
+    [ngClass]="{titlevalid:notice.valid, titledanger:!notice.valid, titleblack:black, titleblue : blue , titlegreen : green , titlered : red , titlepink : pink}"
     >{{notice.msg}}</h5>
    <img 
    class="close"

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { timestamp } from 'rxjs/operators';
 import { DemandeModule } from 'src/app/model/demande/demande.module';
 import { DemandeService, IDemandes } from 'src/app/service/demande.service';
+import { PositionService } from 'src/app/service/position.service';
 
 @Component({
   selector: 'app-element',
@@ -18,7 +19,8 @@ export class ElementComponent implements OnInit {
   closed: boolean=false;
   pourcentage : string="0%";
   status : string="still new !";
-  constructor(private demandeservice: DemandeService, private router :Router) {
+  constructor(private demandeservice: DemandeService, private router :Router , 
+    private positionservice : PositionService) {
    
    }
 
@@ -51,9 +53,10 @@ export class ElementComponent implements OnInit {
   }
 
   link(){
-    if (this.demande.level==1){
+
+  
       this.router.navigate(['/details', this.demande.docid])
-    }
+    
   }
   
 }

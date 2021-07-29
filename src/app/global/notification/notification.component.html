@@ -1,8 +1,10 @@
 
 <div class="container">
     <h1>Notifications :</h1>
-    <app-elementnotif *ngFor="let notif of notifications" 
-        [element]="notif">
+    <app-elementnotif *ngFor="let notif of table" 
+        [notification] ="notif"
+      
+        >
     </app-elementnotif>
   
 </div>

@@ -21,6 +21,7 @@ export class NoticesService {
 
 export interface Notice {
   msg:string 
-  valid:boolean
+  valid?:boolean
   admin?:true
+  color ?: string
 }

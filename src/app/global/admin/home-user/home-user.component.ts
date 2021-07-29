@@ -25,7 +25,6 @@ export class HomeUserComponent implements OnInit {
     
      
   
- this.positionservice.changePosition("home");
    
    }
 
@@ -45,10 +44,10 @@ export class HomeUserComponent implements OnInit {
 
 
   getdemandes(id) :void{
-    this.demandeService.getuserdemandes(id)
+    this.demandeService.getuserdemandes1(id)
     .subscribe(
       (res)=> {
-      
+      if(res){
         this.demandes= res.map (
         (demand)=> { 
           return {
@@ -58,7 +57,7 @@ export class HomeUserComponent implements OnInit {
           } as IDemandes;
         })
         this.current=this.demandes;
-      });
+      }});
     ;
     }
 

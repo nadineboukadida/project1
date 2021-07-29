@@ -21,28 +21,23 @@ export class HomeComponent implements OnInit {
    
      
   
- this.positionservice.changePosition("home");
    
    }
 
   ngOnInit(): void {
-  
+
    this.getdemandes()
   
 }
   getdemandes() :void{
-  
-    setTimeout(() => {
       
-  console.log('1',localStorage.getItem('user'))
-
+    
     this.demandeService.firestore.collection('demands')
     .doc(localStorage.getItem('user'))
-    .collection('collection' ,ref=> ref.where("type","<","4")).snapshotChanges()
-    
+    .collection('collection',ref=> ref.where("level","<",4)).snapshotChanges() 
     .subscribe(
       (res)=> {
-      
+        if(res){     
         this.demandes= res.map (
         (demand)=> { 
           return {
@@ -51,13 +46,13 @@ export class HomeComponent implements OnInit {
              id : demand.payload.doc.id
           } as IDemandes;
         });
-      })
+      }})
    
     
-    }, 4000);
+    
 
       
-    }
+  }
 
 
   }

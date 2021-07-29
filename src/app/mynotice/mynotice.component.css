@@ -48,6 +48,8 @@ color : #2fd573;
   border-left: 15px solid #ee5353;
 
 } 
+
+
 .black {
     background-color:#f6ffc1;
     border-left: 15px solid #696819;
@@ -55,4 +57,33 @@ color : #2fd573;
 .titleblack {
 color :#313131;
 
+}
+.green{
+  background-color:#c3f3d7;
+  border-left: 15px solid #2fd573;
+
+}
+.pink {
+  background-color: #dabdff;
+  border-left: 15px solid #8e0fad;
+}
+ .blue {
+  background-color: #a9ddff;
+  border-left: 15px solid #164ada;
+ }
+ .red {
+  background-color: #ffcaca;
+  border-left: 15px solid #ee5353;
+ }
+ .titlegreen {
+   color: #2fd573;
+ }
+ .titlered{
+  color: #ee5353;
+}
+.titleblue {
+  color: #164ada;
+}
+.titlepink {
+  color: #8e0fad;
 }

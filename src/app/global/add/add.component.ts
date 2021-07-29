@@ -27,10 +27,7 @@ type : string ='';
   }
 
   ngOnInit(): void {
-    this.positionservice.changePosition("add");
-    // setInterval((()=>console.log ('hiiiiiiii')), 2000) 
-
-    // setInterval((()=>console.log (this.type)), 2000) 
+  
   
   }
 select1 (){

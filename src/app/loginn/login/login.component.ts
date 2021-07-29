@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {map} from 'rxjs/operators'
 import { Compte } from 'src/app/compte/compte.module';
-import { PersonneModule } from 'src/app/model/personne/personne.module';
 import { DemandeService } from 'src/app/service/demande.service';
 import { LoginService } from 'src/app/service/login.service';
 import { Router } from '@angular/router';
 import { NoticesService } from 'src/app/service/notices.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +27,9 @@ signupImage : boolean ;
  
 
   constructor(private http: HttpClient, 
-    private loginservice : LoginService, 
+    public firebaseAuth : AngularFireAuth,
+    private loginservice : LoginService,
+    private router : Router, 
    private  demandeservice : DemandeService,
    private noticeservice:NoticesService) { 
     this.signupImage = false;
@@ -62,13 +64,17 @@ signupImage : boolean ;
      this.signupsvg  = !this.signupsvg ;
   }
 
-  async signin(myform: {email : string , pass : string}){
+ 
 
-    await this.loginservice.signin
-    (myform.email, myform.pass)
-    this.loginservice.isLoggedin = true ;
-  
- }
+
+ 
+ async signin(myform: {email : string , pass : string}){
+
+  await this.loginservice.signin
+  (myform.email, myform.pass)
+  this.loginservice.isLoggedin = true ;
+
+}
 
  
 }

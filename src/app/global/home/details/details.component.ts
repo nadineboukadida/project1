@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
 import { DemandeModule } from 'src/app/model/demande/demande.module';
 import { DemandeService, IDemandes } from 'src/app/service/demande.service';
+import { NoticesService } from 'src/app/service/notices.service';
 
 @Component({
   selector: 'app-details',
@@ -23,12 +24,14 @@ selected4 : boolean = false ;
   forth: boolean= false;
   final: { name: string; date: string; type: any; level: number; };
   type: string="";
-
+  update : boolean=false
+  picture: string;
 
   constructor(
     private router: Router,
     private demandeservice : DemandeService,
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute,
+    private noticeservice:NoticesService
   ) { }
 
   ngOnInit(): void {
@@ -74,6 +77,33 @@ check(){
     (res:IDemandes) => {
      
       this.demande=res
+      if (this.demande.level==1){
+        this.update=true;
+        this.picture ="new"
+      this.noticeservice.changeMode({msg :"you can edit this request 🛠", color : "pink"})
+
+      }
+     else if (this.demande.level==2)
+    {
+      this.picture ="working"
+
+      this.noticeservice.changeMode({msg :"you can't edit this request ! We are working on it 👨‍💻 ", color : "blue"})
+
+    }
+    else if (this.demande.level==3)
+    {
+      this.picture ="ok"
+
+      this.noticeservice.changeMode({msg :" Accepted Request ✔ ", color : "green"})
+
+    }
+    else if (this.demande.level==4)
+    {
+      this.picture ="close"
+      this.noticeservice.changeMode({msg :"You can't edit a closed request ❌ ", color : "red"})
+
+    }
+    
     }
  )
  setTimeout(()=>{ 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { notification } from 'src/app/model/notification/notification.module';
 import { AdminService } from 'src/app/service/admin.service';
 import { DemandeService, IDemandes, User } from 'src/app/service/demande.service';
 import { LoginService } from 'src/app/service/login.service';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'app-modify',
@@ -22,6 +24,7 @@ export class ModifyComponent implements OnInit {
    level3=false;
    level4=false;
 notice=false;
+notif : notification
 
     final: { level: number; };
     type: string="";
@@ -31,6 +34,7 @@ notice=false;
   
   
     constructor(
+      private notificationservice:NotificationService,
       private router: Router,
       private loginservice : LoginService,
       private demandeservice : DemandeService,
@@ -156,6 +160,15 @@ console.log('res', res)
      level:3
     }
    this.demandeservice.updatelevel(this.final,this.demande.docid);
+   this.notif ={ 
+    title :"new update !",
+    body : "Request Accepted 🎉 Click to check it out",
+     level : 3,
+     docid :  this.demande.docid,
+     seen : false ,
+    date : new Date()
+  }
+this.notificationservice.sendNotif(this.personne,this.notif)
     console.log('updated')
    }
 
@@ -166,6 +179,16 @@ console.log('res', res)
       level:4
      }
     this.demandeservice.updatelevel(this.final,this.demande.docid);
+    this.notif ={ 
+      title :"new update !",
+      body : "Request Closed :) Click to check it out",
+       level : 4,
+       docid :  this.demande.docid,
+       seen : false ,
+    date :new Date()
+
+    }
+  this.notificationservice.sendNotif(this.personne,this.notif)
   
    }
    workonit(){
@@ -176,19 +199,32 @@ console.log('res', res)
      this.update ={
        uid:this.demande.uid,
        level:2,
-       admin: this.loginservice.userID
+       admin: this.loginservice.userID,
+       
      }
      this.demandeservice.updateadmin(this.update,this.demande.docid).then(()=> 
     { 
-      setTimeout(()=> this.adminservice.addDemandinAdmin(this.demande) ,1000)
-    
+      
+      this.notif ={ 
+        title :"new update !",
+        body : "We are working on your request :) Click to check it out",
+         level : 2,
+         docid :  this.demande.docid,
+         seen : false ,
+    date :new Date()
+
+      }
+      this.adminservice.addDemandinAdmin(this.demande)
+    this.notificationservice.sendNotif(this.personne,this.notif)
     })
+
    
   }
 getname(){
   
   this.demandeservice.getuser(this.demande.uid).subscribe(
-      (res:User) =>{ this.personne=res
+      (res:User) =>{ 
+        this.personne=res
     
       });
 
