@@ -7,9 +7,8 @@
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-title" content="Proxym files"/>
-
+<meta name="msapplication-starturl" content="/">
   <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
-  <link rel="manifest" href="manifest.webmanifest">
    <meta name="theme-color" content="#1976d2">
    <link rel="icon" type="image/png" href="./assets/icons/proxym/favicon-16x16.png" sizes="16x16">
    <link rel="icon" type="image/png" href="./assets/icons/proxym/favicon-32x32.png" sizes="32x32">
@@ -32,6 +31,17 @@
   </head>
 <body style="overflow-x: hidden;">
   <app-root></app-root>
-  <noscript>Please enable JavaScript to continue using this application.</noscript>
+  <script>
+  if('serviceWorker' in navigator )
+  {
+    navigator.serviceWorker.register('/service-worker.js')
+    .then((registration) => {
+      console.log('SW registred')
+    }).catch((err)=> { 
+      console.log('SW error', err)
+    });
+  }
+
+</script>
 </body>
 </html>

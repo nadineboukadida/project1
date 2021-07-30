@@ -89,7 +89,6 @@
  [disabled]="myForm.invalid"
  routerLink='/home' 
  >Sign Up</button>
-</div>
 
 <div class="top1"
 [ngClass]="{signuptop: !signuptop}"
@@ -98,11 +97,14 @@
 [ngClass]="{signupsvg: !signupsvg}"
 >
  <h1 class="title1">Vous avez déja un Compte ?</h1>
- <h4 class="subtitle">Rejoignez nous maintenant !</h4>
-<p class="signup" href="#"
+ <h4 class="subtitle">join us noww !</h4>
+<p class="signup" 
+id="p"
 (click)="signup(myForm)"
 >Sign in</p>
 </div>
+</div>
+
 </form>
 
  

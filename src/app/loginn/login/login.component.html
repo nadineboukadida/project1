@@ -3,6 +3,7 @@
 
 >
 <div class="proxym"></div>
+
 <div class="image"
 [ngClass]="{signupImage: signupImage}"
 ></div>
@@ -55,8 +56,7 @@ class="error"
 routerLink="/home"
 (click)="signin(myForm.value)"
 class="a" href="#">Login</button>
-</div>
-</form>
+
 
 
 <!-- ******************************************* SIGN UP LINK !!********************************* -->
@@ -67,15 +67,17 @@ class="titles"
   <img class="signinimg"src="assets/file1.svg" alt=""
 [ngClass]="{signupsvg : signupsvg }"
 >
-<h1 class="title">Are you New app-header ?</h1>
+<div class="div">
+<h1 class="title">Are you New ?</h1>
 <h4 class="subtitle">Join us Now !</h4>
 <p 
 (click)="signup()"
 
 class="signup" href="#">Sign up</p>
-
 </div>
-
+</div>
+</div>
+</form>
 </div>
 
 <app-signup

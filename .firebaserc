@@ -1,5 +1,6 @@
 {
   "projects": {
-    "staging": "proxym-files"
+    "staging": "proxym-files",
+    "dev": "proxym-378ab"
   }
 }

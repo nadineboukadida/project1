@@ -13,13 +13,14 @@ pointer-events: none;
     /* background-repeat: no-repeat; */
     background-size: cover;
     width:400%;
+    overflow: hidden;
     height: 200%;
     border-radius: 90%;
     transition-duration: 1500ms;
     transition-property:transform;;
     transform:translate(-200px,200px);
     position: absolute;
-    z-index: 0;
+    z-index: -5;
   
 
 
@@ -33,7 +34,7 @@ span {
 }
 .title {
     font-family: title;
-    color: azure;
+    color: rgb(255, 255, 255);
     font-size: 25px;
     font-weight: 100;
     /* transform: translateX(-20%); */
@@ -48,7 +49,7 @@ span {
 
 
   .subtitle {
-      font-family: subtitle;
+      font-family: title;
       margin-top: 0;
       margin-bottom: 0;
       color: rgb(0, 0, 0);
@@ -60,7 +61,7 @@ span {
   
      right: 10%;
       display: flex;
-      flex-direction: column;
+   
       justify-content: center;
       align-items: center;
       transition-duration: 1000ms;
@@ -71,7 +72,7 @@ span {
 /*  ***************** FORM ***************** */
 .first {
  
-
+overflow: visible;
 }
 h1 {
     margin: 0;
@@ -216,7 +217,9 @@ a , .a, .signup{
     outline: none;
     color: black;
 }
-
+.signup {
+    margin: 5px;
+}
 .proxym {
     background-image: url(/assets/proxym.png);
     width: 230px;
@@ -240,9 +243,9 @@ z-index: 300;
 
 }
 .first {
-    height: 100vh;
+    height:110vh;
+    /* height: 100vh; */
     width: 100vw;
-    overflow: hidden;
     position: relative;
 }
 .signinimg {
@@ -252,10 +255,14 @@ z-index: 300;
  transition-duration: 1000ms;
 }
 
-
+.div1 {
+    height: 100vh;
+    position:absolute;
+}
 .signupImage {
     pointer-events: none;
-transform: translate(-74%,-60%);;
+transform: translate(-74%,-60%);
+/* overflow: hidden; */
 }
 .signuptop {
     transform: translateY(190%);
@@ -372,19 +379,27 @@ span.error {
     font-size: 17px;
 
 }
+.div {
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: center;
+transform: translateY(20px);
+
+margin: 10px 2px;
+}
 
 .titles {
     width: 100vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
+  z-index: 5;
 }
 @media only screen and (max-height:715px){
 .signinimg {
-    width: 150px;
+    width: 30vw;
 }
 h1 {
     font-size: 22px;
@@ -399,14 +414,10 @@ h1.title {
     .proxym {
         margin-bottom: 50px;
     }
-    .signinimg {
-        width: 230px ;
-    }
+  
 }
 @media only screen and (min-width:600px){
-    .signinimg {
-        width: 300px;
-    }
+  
     h1 {
         font-size: 32px;
     }
