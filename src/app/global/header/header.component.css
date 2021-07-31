@@ -96,7 +96,7 @@ background:#120c46;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     top: 0;
     /* top: 25%; */
     /* display: none; */
@@ -113,20 +113,23 @@ background:#120c46;
 a{
   font-family: title;
   font-size: 18px;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     z-index: 200;
     width: 110px;
     height: 20px;
+
     /* margin-right: 20px; */
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 30px;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
    margin-bottom: 20px;
-    border: 2px rgb(104, 82, 117) solid;
-    padding: 12px;
+   background: rgb(18,49,80);
+background: linear-gradient(87deg, #3664c7c6 0%, #a2e7ff 100%);
+    border: 2px rgb(240, 213, 255) solid;
+    padding: 20px;
     -webkit-box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
 -moz-box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
 box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
@@ -161,16 +164,12 @@ box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
  
 }
 .move1.link3 {
-    transform: translate(0) rotate(25deg);
+    transform: translate(0) ;
    
-}
-.move1.link4{
-  transform: translate(0,70px);
-
 }
 
 .blur {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.836);
@@ -185,11 +184,7 @@ box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
   position: absolute;
   width: 15px;
 }
-@keyframes animation {
-  0% {transform: rotate(10deg);}
-  50% {transform: rotate(5deg);}
-  100% {transform: rotate(-1deg);}
-}
+
 #legs {
   margin: 0 200px;
   animation: animation 2s linear infinite alternate;
@@ -203,9 +198,7 @@ box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
   z-index: 1000;
   /* transform: translate(65px,-4px); */
 }
-.movesvg {
-  transform: translate(22px,-11px) rotate(25deg);
-}
+
 #morph {
   width: 100vw;
   height: 100vh;
@@ -221,4 +214,7 @@ box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
   width: 100vw;
   height: 100vh;
 
+}
+.link4 {
+  background-image: linear-gradient(87deg, #000000c6 0%, #c6f1ff 100%);
 }

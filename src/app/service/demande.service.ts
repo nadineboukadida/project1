@@ -107,7 +107,7 @@ updateadmin(data:Iadmin,id){
     .collection('collection' ,ref=> ref.where("level","<",4)).snapshotChanges()
    }
 
-   getuserdemandes1(id){
+   getuserdemandes1(id:string){
     return this.firestore.collection('demands')
     .doc(id)
     .collection('collection').snapshotChanges()
@@ -118,6 +118,10 @@ updateadmin(data:Iadmin,id){
   //  }
    getprofil (){
     return this.firestore.collection('users').doc(localStorage.getItem('user')).valueChanges()
+
+   }
+   getprofilid (id){
+    return this.firestore.collection('users').doc(id).valueChanges()
 
    }
    getnumber(){
@@ -140,7 +144,8 @@ export interface User {
   gender:string;
   cin?:string;
   phone?:string;
-  fcmtokens?:any
+  fcmtokens?:any;
+  admin: boolean;
   
 }
 

@@ -195,8 +195,11 @@ a , .a , .signup {
     outline: none;
     background-color: transparent;
     color: black;
+    
 }
-
+.a{
+    z-index: 555;
+}
 
 .signup {
 color: rgb(0, 0, 0);
@@ -217,14 +220,14 @@ z-index: 300;
 transform: translate(-74%,-60%);;
 }
 .signuptop {
-    transform: translateY(190%);
+    transform: translateY(200vh);
 }
 .signupform, #form1.signupform{
     transform: translateY(-130%);
    
 }
 .signupsvg {
-    transform: translateX(120vw);
+    transform: translateX(200vh);
 }
 .transform {
  pointer-events: none;
@@ -260,15 +263,15 @@ h1 {
   
 }
 #form1{
-  transform: translate(50px,-40px);
+  transform: translate(50px);
 }
 
 
 .file2 {
     /* position: absolute; */
 align-self: flex-start;
-    width: 20vw;
- transform: translate(-40px);
+    width: 35vw;
+ /* transform: translate(-40px); */
  z-index: 5;
  /* top: 0; */
  transition-duration: 1000ms;
@@ -279,7 +282,8 @@ align-self: flex-start;
  /* overflow: hidden; */
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
+    overflow: scroll;
     top: 0;
     bottom: 0;
     
@@ -375,7 +379,7 @@ li {
 
 
 .proxym {
-    background-image: url(/assets/proxym.png);
+    /* background-image: url(/assets/proxym.png); */
     width: 230px;
     /* position: absolute; */
     height: 100px;
@@ -396,13 +400,14 @@ li {
   color: rgb(0, 0, 0);
       display: flex;
       align-self: center;
-      flex-direction: column;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      transform: translateY(-7vh);
+      /* transform: translateY(-7vh); */
       transition-duration: 1000ms;
   z-index: 1;
   position: relative;
+  margin: 5px;
   }
 
   .form2 label.labelselected {
@@ -452,4 +457,11 @@ span.error {
        width: 20vw;
    }
     
+}
+.text {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }

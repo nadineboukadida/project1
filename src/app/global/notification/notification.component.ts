@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { notification, NotificationModule } from 'src/app/model/notification/notification.module';
@@ -26,7 +27,8 @@ table : notification[]
     private notificationservice: NotificationService,
     private positionservice: PositionService,
     public firebaseAuth : AngularFireAuth ,
-    private firestore: AngularFirestore) 
+    private firestore: AngularFirestore
+    ) 
     {
  
    }
@@ -44,7 +46,7 @@ table : notification[]
     this.currentnotifs.subscribe((n)=> {
       if(n){
       n.forEach((e)=> {
-  if (!e.seen){
+  if (e.seen==false){
     console.log('changing')
 
         this.data ={
@@ -102,4 +104,6 @@ checkseen() {
    updatenotifs(notif:notification[]){
     this.notifications.next(notif)
       }
+
+   
 }

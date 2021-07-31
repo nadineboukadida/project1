@@ -15,40 +15,33 @@ export class TabadminComponent implements OnInit {
   // positionservice: any;
     constructor( private positionservice : PositionService) {
   // this.position= positionservice.position;
+  this.positionservice.currentpos.subscribe((pos)=> {this.position=pos
+  })
      }
   
     ngOnInit(): void {
-      if (this.position=="home") {
+      if (this.position=="admin") {
         this.home=true;
+        this.add=false;
       }
-      else if (this.position=="notif") {
+      else if (this.position=="work") {
         this.notif=true;
+        this.home=false;
       }
-      else if (this.position=="add"){
-        this.add=true ;
-      }
+   
     }
     homeClick(){
       this.home=true;
-      this.notif=false;
       this.add=false;
+this.positionservice.changeMode("admin")
    
     }
     addClick(){
       this.add=true;
       this.home=false;
-      this.notif=false;
-   
-  
+this.positionservice.changeMode("work")
+
     }
-    notifClick(){
-      this.notif=true;
-      this.home=false;
-      this.add=false;
-  
-  
-    }
-  
-  
-  
+
+
 }

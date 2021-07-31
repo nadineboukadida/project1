@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DemandeModule } from 'src/app/model/demande/demande.module';
 import { notification, NotificationModule } from 'src/app/model/notification/notification.module';
 
@@ -17,7 +18,7 @@ green : boolean = false;
 red : boolean = false ;
 title : string =""
 body : string=""
-  constructor() {
+  constructor(private router : Router) {
 
 
   }
@@ -47,5 +48,14 @@ body : string=""
     }
     
   }
+
+
+
+  link(){
+
+  
+    this.router.navigate(['/details', this.notification.docid])
+  
+}
 
 }

@@ -9,6 +9,7 @@ notif : string ='notif';
 private position= new BehaviorSubject<string>('home')
 currentpos= this.position.asObservable();
   
+
 changeMode(pos:string){
   this.position.next(pos)
     }

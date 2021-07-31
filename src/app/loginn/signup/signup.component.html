@@ -18,7 +18,7 @@
      <div class=" div-name div-mail">
      <input ngModel type="text" name="name" autocomplete="off" required >
      <label for="email" class="label-mail shake-horizontal">
-         <span class="span-mail">Nom et Prénom</span>
+         <span class="span-mail">Firstname & Name</span>
      </label>
  </div>
  
@@ -45,7 +45,7 @@
      ngModel required type="password" name="pass" autocomplete="off" >
      <label for="mdp" class="label-pass">
          <span class="span-pass">
-             Mot de Passe
+             Password
          </span>
      </label>
  </div>
@@ -93,15 +93,18 @@
 <div class="top1"
 [ngClass]="{signuptop: !signuptop}"
 >
+
 <img src="assets/file2.svg" class="file2" alt=""
 [ngClass]="{signupsvg: !signupsvg}"
 >
+<div class="text">
  <h1 class="title1">Vous avez déja un Compte ?</h1>
- <h4 class="subtitle">join us noww !</h4>
+ <h4 class="subtitle">join us now !</h4>
 <p class="signup" 
 id="p"
 (click)="signup(myForm)"
 >Sign in</p>
+</div>
 </div>
 </div>
 

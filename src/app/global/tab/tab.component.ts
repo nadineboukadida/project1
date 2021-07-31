@@ -20,8 +20,8 @@ notif : boolean = false;
     private notificationservice: NotificationService) {
 this.notificationservice.getpic().subscribe((pic)=> this.pic = pic)
 
-    // this.positionservice.currentpos.subscribe((pos)=> {this.position=pos
-  
+    this.positionservice.currentpos.subscribe((pos)=> {this.position=pos
+    })
     // })
    }
 
@@ -30,12 +30,18 @@ this.notificationservice.getpic().subscribe((pic)=> this.pic = pic)
 
     if (this.position=="home") {
       this.home=true;
+      this.notif=false;
+      this.add=false;
     }
     else if (this.position=="notif") {
       this.notif=true;
+      this.home=false;
+      this.add=false;
     }
     else if (this.position=="add"){
       this.add=true ;
+      this.home=false;
+      this.notif=false;
     }
   }
   homeClick(){

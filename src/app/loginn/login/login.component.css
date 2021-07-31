@@ -19,9 +19,10 @@ pointer-events: none;
     transition-duration: 1500ms;
     transition-property:transform;;
     transform:translate(-200px,200px);
-    position: absolute;
+    position: fixed;
     z-index: -5;
-  
+  position: fixed;
+  overflow: hidden;
 
 
 }
@@ -268,7 +269,7 @@ transform: translate(-74%,-60%);
     transform: translateY(190%);
 }
 .signupform {
-    transform: translateY(100vh);
+    transform: translateY(200vh);
 }
 .signupsvg {
     transform: translateX(220%);
@@ -399,7 +400,7 @@ margin: 10px 2px;
 }
 @media only screen and (max-height:715px){
 .signinimg {
-    width: 30vw;
+    width: 35vw;
 }
 h1 {
     font-size: 22px;

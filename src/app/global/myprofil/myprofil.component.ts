@@ -21,20 +21,21 @@ export class MyprofilComponent implements OnInit {
  
   }
   getpersonne(){
-    setTimeout(() => {
        this.demandeservice.getprofil().subscribe(
       (res:User) =>{ 
+        if (res) {
         this.personne=res
     if (res.gender=="male") {
       this.pic= 'profil1'
     }
-  }
+        }}
     )
-    }, 2000);
+    
    
   }
   updateProfil(myform :{name :string , phone : string , cin : string}) {
     this.loginservice.updateProfil(myform);
+
   this.noticeservice.changeMode({msg:"updated successfully", valid  :true})
 
   }

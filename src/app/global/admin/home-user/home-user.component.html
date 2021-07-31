@@ -5,8 +5,18 @@
     </div>
     <div class="titles">
     <h3>Requests from :</h3>
-    <h3> {{user.email}}</h3>
+    <h3> {{person.email}}</h3>
 </div>
+
+<button
+[disabled]="disabled"
+(click)="updateadmin()"
+[ngClass]="{click: click}"
+class="admin">
+      
+    <h5> {{text}} </h5> 
+      <img src="/assets/svg/admin.svg" alt="">
+    </button>
 <div class="sort">
     <img 
     [ngClass]="{selected: selected4}"
@@ -27,9 +37,12 @@
 
     (click) ="closed()"    src="/assets/svg/close.svg" alt="">
     </div>
+    
+    <div class="app">
 <app-element-user
     *ngFor="let box of current"
     [demande]="box"
     >
 </app-element-user>
-    </div>
+</div>    
+</div>

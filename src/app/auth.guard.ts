@@ -19,9 +19,9 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
    if (this.auth.authenticated) {return true;}
       
-this.noticeservice.changeMode({msg:"Acces Denied! Log in first" ,valid:false})
+// this.noticeservice.changeMode({msg:"Acces Denied! Log in first" ,valid:false})
    this.router.navigate(['/login']);
-      return true;
+      return false;
   }
   
 }

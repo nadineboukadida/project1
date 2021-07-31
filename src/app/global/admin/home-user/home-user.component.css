@@ -7,6 +7,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
         padding-top: 30px;
         padding-bottom: 70px;
@@ -41,6 +42,7 @@ img {
 display: flex;
 justify-content: space-around;
 align-items: center;
+flex-wrap: wrap;
 
 }
 .selected {
@@ -49,8 +51,27 @@ align-items: center;
 }
 
 
+.admin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgb(255, 255, 255);
+    width: 50vw;
+    height: 50px;
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(87deg, rgba(211, 211, 211, 0.778) 0%, rgba(32, 32, 32, 0.621) 100%);
+    transition: all 3000ms ;
+    margin: 10px;
 
-
+}
+h5{
+    font-family: title;
+    font-size: 19px;
+}
+.admin img {
+    width: 40px;
+}
 
 
 
@@ -60,10 +81,32 @@ align-items: center;
 @media only screen and (min-width: 700px){
 
     h3 {
-        margin: 20px;
-        font-size: 45px;
+        margin: 5px;
+        font-size: 30px;
     }
     .titles {
         flex-direction: column;
+    }
+    .admin  {
+        width :350px
+    }
+}
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+button:focus {
+ background-color: black;
+    background: linear-gradient(87deg, rgba(0, 0, 0, 0.778) 0%, rgba(211, 211, 211, 0.621) 100%);
+
+}
+
+@media only screen and (max-width: 400px){
+
+   
+    .admin  {
+        width :230px
     }
 }

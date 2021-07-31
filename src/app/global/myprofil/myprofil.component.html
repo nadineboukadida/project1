@@ -90,7 +90,7 @@
     
     <button
     (click)="updateProfil(myform.value)"
-    
+    [disabled]="!myform.valid"
     >save</button>
     </div>
     

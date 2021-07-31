@@ -11,6 +11,7 @@
     z-index: 99999999;
     overflow: hidden;
     pointer-events: none;
+    transform: translateY(70px);
 }
 .hide {
     transform: translateY(-60px);

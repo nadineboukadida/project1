@@ -31,6 +31,7 @@ notifications = new BehaviorSubject<notification[]>(null)
   hide: boolean;
   position: string;
   data: { seen: boolean; };
+  noupdate: boolean;
 
 
   ngOnInit(): void {
@@ -64,7 +65,10 @@ notifications = new BehaviorSubject<notification[]>(null)
 
         }
         else {
+          if (this.noupdate){
           this.notificationservice.setpic("notifgray")
+
+          }
         }
       
       })
@@ -76,6 +80,7 @@ notifications = new BehaviorSubject<notification[]>(null)
             console.log("waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
             console.log(n.filter((notif)=> (notif.seen==false)))
             this.notificationservice.setpic("notif1")
+            this.noupdate=false;
           }
         else {
       if (this.position=="notif")

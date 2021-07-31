@@ -1,6 +1,9 @@
+import { localizedString } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginComponent } from 'src/app/loginn/login/login.component';
 import { DemandeService, IDemandes, User } from 'src/app/service/demande.service';
+import { LoginService } from 'src/app/service/login.service';
 import { PersonneService } from 'src/app/service/personne.service';
 import { PositionService } from 'src/app/service/position.service';
 
@@ -17,9 +20,16 @@ export class HomeUserComponent implements OnInit {
   selected2: boolean;
   selected3: boolean;
   selected4: boolean;
+  click : boolean = false
+  text : string = "Make admin"
+  id: string
+  person: User={email: "loading...", name:"", gender: "", admin:false}
+  admin: {admin : boolean};
+  disabled: boolean;
   constructor(private demandeService:DemandeService , 
     private positionservice : PositionService, private router: Router,
-    private activatedRoute : ActivatedRoute, private userservice: PersonneService
+    private activatedRoute : ActivatedRoute, private userservice: PersonneService,
+    private loginservice : LoginService
         ) 
     {
     
@@ -29,24 +39,55 @@ export class HomeUserComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.user= this.userservice.thisuser
 
     this.activatedRoute.params.subscribe(
       (params)=> {
+        this.id =String(params)
+        console.log (params.id)
     this.getdemandes(params.id);
-      }
-    )
+    this.getperson(params.id)
+  
+    })
+  }
+    
 
  
     
+  
+  getperson(id) {
+    this.demandeService.getprofilid(id).subscribe(
+      (res:User) =>{ 
+        console.log("waaaaaaaaaaaaaaa", res, id)
+
+        if(res){
+        this.person=res
+        console.log("waaaaaaaaaaaaaaa", this.person.email)
+
+        if (this.person.admin){
+          this.text="is Admin"
+          this.disabled = true;
+        }
+         
+          else { this.disabled = false;
+          this.text="Make admin" }
+          }})
   }
 
+updateadmin (){
+  this.admin ={
+    admin  :true
+  }
+  this.loginservice.updateProfil1(this.admin,this.id);
+  this.text="is Admin"
+  this.click=true
 
+}
 
   getdemandes(id) :void{
     this.demandeService.getuserdemandes1(id)
     .subscribe(
       (res)=> {
+       
       if(res){
         this.demandes= res.map (
         (demand)=> { 

@@ -2,6 +2,8 @@
     width: 100vw;
     height: 100vh;
     /* background-image: url(/assets/svg/background-update.svg); */
+    background-image: url(/assets/svgadd/background.svg);
+
     position: relative;
   z-index: 501;
 }
@@ -28,12 +30,12 @@
 }
 .measures {
     /* background-image: url(/assets/back/new.svg); */
-
-    margin-top: 100px;
+overflow: scroll;
+    margin-top: 10vh;
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     align-items: center;
     position: relative;
@@ -237,7 +239,7 @@ button {
     @media only screen and (max-height: 1000px){
        
       .measures {
-          margin-top: 50px;
+          margin-top:10vh;
       }
 
 input.text.date {
@@ -275,10 +277,7 @@ div.form {
    
 @media only screen and (max-height: 700px){
        
-    .measures {
-        margin-top: 30px;
-    }
-
+    
 input.text.date {
   font-size: 15px;
 }

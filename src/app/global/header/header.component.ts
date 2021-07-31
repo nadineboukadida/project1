@@ -17,6 +17,7 @@ frame : boolean = false ;
   myDiv!: ElementRef<HTMLElement>;
   morph: any;
   adminTab: boolean;
+  disable:boolean=true
 isAuth = false ;
   constructor(private loginservice : LoginService,
     private adminservice:AdminService,
@@ -26,6 +27,14 @@ isAuth = false ;
 ngOnInit(){
   this.adminservice.currentmode.subscribe
   (msg => this.adminTab=msg)
+  this.loginservice.user.subscribe((res)=> {
+    if(res){
+    console.log('hhhhh', res)
+    if (res.admin) {
+      this.disable=false
+    }}
+    console.log (this.disable)
+  })
 
 }
   ngAfterViewInit(): void {
@@ -65,7 +74,6 @@ this.frame= !this.frame;
   }
   logout(){
     this.triggerFalseClick()
-    this.triggerFalseClick()
   this.loginservice.isLoggedin=false;
   this.loginservice.logout();
   }
@@ -75,7 +83,7 @@ this.frame= !this.frame;
   this.adminservice.changeMode(true)
 this.router.navigate(['/admin/admin'])
 this.noticeservice.changeMode({msg:"admin mode ON", valid  :true, admin  :true})
-this.positionservice.changeMode("admn")
+this.positionservice.changeMode("admin")
 
   }
 
@@ -83,5 +91,7 @@ this.positionservice.changeMode("admn")
     this.triggerFalseClick()
   this.adminservice.changeMode(false)
 this.router.navigate(['/home'])
+this.positionservice.changeMode("home")
+
   }
 }

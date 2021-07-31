@@ -7,6 +7,7 @@ import { IDemandes, User } from './demande.service';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { NoticesService } from './notices.service';
+import { PositionService } from './position.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,13 @@ export class LoginService {
   items: IDemandes[] =[];
   user: Observable<User>
   userID : string= null;
+  valid: any;
 
   constructor( public firebaseAuth : AngularFireAuth ,
-    private firestore: AngularFirestore, private noticeservice:NoticesService) {
+    private firestore: AngularFirestore, private noticeservice:NoticesService
+    , private positionservice : PositionService) {
 
-    this.user= this.firebaseAuth .authState.pipe(switchMap(user => {
+    this.user= this.firebaseAuth.authState.pipe(switchMap(user => {
         if (user) {
           return this.firestore.doc<User>( `users/${user.uid}`).valueChanges ()
         }
@@ -32,12 +35,14 @@ export class LoginService {
         
         )
     
+        this.firebaseAuth.authState.subscribe((res)=>
+        this.valid=res )
 
     }
 
 
    get authenticated():boolean {
-    return localStorage.getItem('user') !==null ;
+   return  !(this.valid==null)
    }
 
    updateUserData(user, name : string , gender : string) {
@@ -49,7 +54,8 @@ export class LoginService {
       uid: user.uid, 
       email: user.email, 
       name: name ,
-      gender : gender
+      gender : gender,
+      admin : false
     } 
 
     return userRef.set(data, { merge: true })
@@ -82,14 +88,27 @@ export class LoginService {
 localStorage.setItem('user',user.uid) 
 this.userID= localStorage.getItem('user');
 this.noticeservice.changeMode({msg :"you just logged in ! welcome :)",valid :true})
-
+this.positionservice.changeMode("home")
 }
 
 
 
 })
   },
-  (err) =>{console.log("log in error :", err.message)})
+  (err) =>{
+if (err.code =="auth/user-not-found")
+this.noticeservice.changeMode({msg:"No corresponding user ! please check your email and password", 
+valid  :false})
+
+if (err.code =="auth/wrong-password")
+this.noticeservice.changeMode({msg:"Invalid Password", 
+valid  :false})
+
+if (err.code =="auth/too-many-requests")
+this.noticeservice.changeMode({msg:"Access to this account has been temporarily disabled, please try again later", 
+valid  :false})
+  })
+
   
     
 }
@@ -100,7 +119,18 @@ async createUser(email : string , pass : string, name : string, gender : string)
         console.log(res)
     this.updateUserData(res.user, name, gender)
     this.isLoggedin= true ;
-      })
+      }
+      ,(err)=>{
+        
+          if (err.code =="auth/weak-password")
+          this.noticeservice.changeMode({msg:err.message, 
+          valid  :false})
+          if (err.code =="auth/invalid-email")
+          this.noticeservice.changeMode({msg:err.message, 
+          valid  :false})
+      }
+      
+      )
       
     }
 
@@ -120,5 +150,11 @@ async createUser(email : string , pass : string, name : string, gender : string)
 
           
    }
+   updateProfil1(data,id:string) {
+    return( this.firestore
+        .collection("users")
+        .doc(id)
+        .set(data, { merge: true }))
+ }
 
 }
