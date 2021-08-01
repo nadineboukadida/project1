@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { NoticesService } from './notices.service';
 import { PositionService } from './position.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +23,11 @@ export class LoginService {
 
   constructor( public firebaseAuth : AngularFireAuth ,
     private firestore: AngularFirestore, private noticeservice:NoticesService
-    , private positionservice : PositionService) {
+    , private positionservice : PositionService,private router : Router) {
 
     this.user= this.firebaseAuth.authState.pipe(switchMap(user => {
         if (user) {
+          this.userID=user.uid
           return this.firestore.doc<User>( `users/${user.uid}`).valueChanges ()
         }
         else {
@@ -88,7 +90,8 @@ export class LoginService {
 localStorage.setItem('user',user.uid) 
 this.userID= localStorage.getItem('user');
 this.noticeservice.changeMode({msg :"you just logged in ! welcome :)",valid :true})
-this.positionservice.changeMode("home")
+this.positionservice.changeMode1("home")
+this.router.navigate(['/home'])
 }
 
 
@@ -100,13 +103,17 @@ if (err.code =="auth/user-not-found")
 this.noticeservice.changeMode({msg:"No corresponding user ! please check your email and password", 
 valid  :false})
 
-if (err.code =="auth/wrong-password")
+else if (err.code =="auth/wrong-password")
 this.noticeservice.changeMode({msg:"Invalid Password", 
 valid  :false})
 
-if (err.code =="auth/too-many-requests")
+else if (err.code =="auth/too-many-requests")
 this.noticeservice.changeMode({msg:"Access to this account has been temporarily disabled, please try again later", 
 valid  :false})
+else {
+  this.noticeservice.changeMode({msg:err.message , 
+valid  :false})
+}
   })
 
   
@@ -119,19 +126,23 @@ async createUser(email : string , pass : string, name : string, gender : string)
         console.log(res)
     this.updateUserData(res.user, name, gender)
     this.isLoggedin= true ;
-      }
+    this.noticeservice.changeMode({msg:"Account created successfully ✨! Welcome", 
+      valid  :true})}
+      
       ,(err)=>{
         
           if (err.code =="auth/weak-password")
           this.noticeservice.changeMode({msg:err.message, 
           valid  :false})
-          if (err.code =="auth/invalid-email")
+           else if (err.code =="auth/invalid-email")
           this.noticeservice.changeMode({msg:err.message, 
           valid  :false})
+          else if (err.code ="auth/email-already-in-use")
+            this.noticeservice.changeMode({msg:err.message , 
+          valid  :false})
       }
-      
       )
-      
+    
     }
 
     logout(){

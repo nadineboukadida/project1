@@ -1,6 +1,9 @@
 
 <div class="container">
     <h1>Notifications :</h1>
+    <h5
+    *ngIf="exist"
+    >No requests at the moment</h5>  
     <app-elementnotif *ngFor="let notif of table" 
         [notification] ="notif"
       

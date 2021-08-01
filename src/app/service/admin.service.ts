@@ -25,7 +25,7 @@ this.inAdmin.next(statut)
   
   getadmin (){
  
-      return this.firestore.collection('admin').doc(localStorage.getItem('user'))
+      return this.firestore.collection('admin').doc(this.loginservice.userID)
       .collection('collection').snapshotChanges()
     
   }

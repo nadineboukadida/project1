@@ -1,5 +1,10 @@
+
+<div class="big">
 <div class="container">
     <h3>Your Requests</h3>
+    <h5
+    *ngIf="exist"
+    >No requests at the moment</h5>
 
 <div class="container-demande">
 <app-element
@@ -7,5 +12,6 @@
 [demande]="box"
 >
 </app-element>
+</div>
 </div>
 </div>

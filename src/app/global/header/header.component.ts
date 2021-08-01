@@ -83,7 +83,7 @@ this.frame= !this.frame;
   this.adminservice.changeMode(true)
 this.router.navigate(['/admin/admin'])
 this.noticeservice.changeMode({msg:"admin mode ON", valid  :true, admin  :true})
-this.positionservice.changeMode("admin")
+this.positionservice.changeMode1("admin")
 
   }
 
@@ -91,7 +91,7 @@ this.positionservice.changeMode("admin")
     this.triggerFalseClick()
   this.adminservice.changeMode(false)
 this.router.navigate(['/home'])
-this.positionservice.changeMode("home")
+this.positionservice.changeMode1("home")
 
   }
 }

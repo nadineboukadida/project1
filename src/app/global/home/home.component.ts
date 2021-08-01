@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   demandes: IDemandes[] = [];
   demandesComplete: IDemandes[] =[];
   b: boolean=false;
+  exist: boolean;
   constructor(private demandeService:DemandeService , 
     private positionservice : PositionService, private loginservice : LoginService
     
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.exist = true ;
 
    this.getdemandes()
   
@@ -33,7 +35,7 @@ export class HomeComponent implements OnInit {
       
     
     this.demandeService.firestore.collection('demands')
-    .doc(localStorage.getItem('user'))
+    .doc(this.loginservice.userID)
     .collection('collection',ref=> ref.where("level","<",4)).snapshotChanges() 
     .subscribe(
       (res)=> {
@@ -45,8 +47,13 @@ export class HomeComponent implements OnInit {
      ...demand.payload.doc.data() as IDemandes,
              id : demand.payload.doc.id
           } as IDemandes;
-        });
-      }})
+        })
+      this.exist = false
+      ;
+   
+      }
+ 
+    })
    
     
     

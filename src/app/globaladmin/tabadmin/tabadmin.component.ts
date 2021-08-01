@@ -15,7 +15,7 @@ export class TabadminComponent implements OnInit {
   // positionservice: any;
     constructor( private positionservice : PositionService) {
   // this.position= positionservice.position;
-  this.positionservice.currentpos.subscribe((pos)=> {this.position=pos
+  this.positionservice.getposition().subscribe((pos)=> {this.position=pos
   })
      }
   
@@ -33,13 +33,13 @@ export class TabadminComponent implements OnInit {
     homeClick(){
       this.home=true;
       this.add=false;
-this.positionservice.changeMode("admin")
+this.positionservice.changeMode1("admin")
    
     }
     addClick(){
       this.add=true;
       this.home=false;
-this.positionservice.changeMode("work")
+this.positionservice.changeMode1("work")
 
     }
 

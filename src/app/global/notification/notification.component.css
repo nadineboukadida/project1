@@ -1,13 +1,14 @@
 .container {
     width: 100vw;
-    height : 90vh ;
     transform: translateY(70px);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items:center;
-    background-image: url(/assets/svgadd/background.svg);
-
+    /* background-image: url(/assets/svgadd/background.svg); */
+    background-color: #9ebfdb;
+    background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
 }
 
@@ -21,6 +22,7 @@
     src: url(/assets/Hunting.otf);
   
 }
+
 h1 {
     /* margin-bottom: 5px; */
     margin : 10px;
@@ -28,5 +30,12 @@ h1 {
     justify-content: flex-start;
     width: 80%;
     font-family: title;
+    color: white;
     
+}
+h5 {
+    color: rgb(0, 0, 0);
+    font-size: 23px;
+    font-family: title;
+    margin: 10px;
 }

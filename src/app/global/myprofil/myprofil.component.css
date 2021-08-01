@@ -13,7 +13,10 @@
         padding-bottom: 70px;
         
         z-index: 100;
-        background-image: url(/assets/svgadd/background.svg);
+        background-color: #9ebfdb;
+        background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+        /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+        /* background-image: url(/assets/svgadd/background.svg); */
     }
     img {
         width: 200px;

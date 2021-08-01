@@ -122,12 +122,13 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 25px;
     text-decoration: none;
     color: rgb(255, 255, 255);
    margin-bottom: 20px;
-   background: rgb(18,49,80);
-background: linear-gradient(87deg, #3664c7c6 0%, #a2e7ff 100%);
+   background-color: #beb2cc;
+   background-image: url("https://www.transparenttextures.com/patterns/gray-floral.png");
+   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     border: 2px rgb(240, 213, 255) solid;
     padding: 20px;
     -webkit-box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
@@ -216,5 +217,7 @@ box-shadow: 10px 10px 23px -2px rgba(219,219,219,1);
 
 }
 .link4 {
-  background-image: linear-gradient(87deg, #000000c6 0%, #c6f1ff 100%);
+  background-color: #a991c5;
+  background-image: url("https://www.transparenttextures.com/patterns/gray-floral.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }

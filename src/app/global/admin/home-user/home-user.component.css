@@ -5,6 +5,8 @@
 
     .container-demande {
         display: flex;
+        background-color: #122f49;
+background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
         flex-wrap: wrap;
         justify-content: center;
         flex-direction: column;

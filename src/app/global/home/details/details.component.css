@@ -1,9 +1,9 @@
 .container {
     width: 100vw;
     height: 100vh;
-    /* background-image: url(/assets/svg/background-update.svg); */
-    background-image: url(/assets/svgadd/background.svg);
-
+  
+    background-color: #9ebfdb;
+    background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
     position: relative;
   z-index: 501;
 }
@@ -18,13 +18,12 @@
 
   h1 {
       color: white;
-    /* margin-bottom: 5px; */
     margin-left : 10%;
     display: flex;
     justify-content: flex-start;
     width: 100%;
     font-family: title;
-    font-size: 9vw;
+    font-size: 25px;
     transform: translateY(10px);
     
 }

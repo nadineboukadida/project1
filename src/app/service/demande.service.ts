@@ -58,11 +58,11 @@ export class DemandeService {
           .doc(id)
           .set(data,{ merge: true }))
   }
-  updatelevel(data:ILevel,id){
+  updatelevel(data:ILevel,demande:IDemandes){
     return( this.firestore
         .collection("demands")
-        .doc(localStorage.getItem('user')).collection('collection')
-        .doc(id)
+        .doc(demande.uid).collection('collection')
+        .doc(demande.docid)
         .set(data,{ merge: true }))
 }
 updateadmin(data:Iadmin,id){
@@ -117,7 +117,7 @@ updateadmin(data:Iadmin,id){
   //    return this.firestore.
   //  }
    getprofil (){
-    return this.firestore.collection('users').doc(localStorage.getItem('user')).valueChanges()
+    return this.firestore.collection('users').doc(this.loginservice.userID).valueChanges()
 
    }
    getprofilid (id){

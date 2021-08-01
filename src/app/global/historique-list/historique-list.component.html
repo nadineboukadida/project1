@@ -1,9 +1,12 @@
-
+<div class="big">
  <div class="container-demande">
-    <h1>Historique :</h1>
+    <h1>History :</h1>
+    <h5
+    *ngIf="exist"
+    >No requests at the moment</h5>
     <app-element
     *ngFor="let box of demandes"
     [demande]="box"
     >
     </app-element>
-    </div> 
+    </div> </div>

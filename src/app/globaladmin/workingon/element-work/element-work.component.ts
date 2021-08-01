@@ -21,7 +21,8 @@ export class ElementWorkComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
+    console.log('inside',this.demande)
+if (this.demande){
     if (this.demande.level==1){
       this.new = true ;
     }
@@ -46,7 +47,7 @@ export class ElementWorkComponent implements OnInit {
 
     }
   }
-
+  }
   link(){
       this.router.navigate(['/admin/modify', this.demande.docid,this.demande.uid])
     }

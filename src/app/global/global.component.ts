@@ -30,7 +30,7 @@ home : string="home"
   ngOnInit() {
     // console.log(localStorage.getItem('login'))
 
-this.positionservice.currentpos.subscribe((pos)=> {
+this.positionservice.getposition().subscribe((pos)=> {
   this.position = pos
  
 })

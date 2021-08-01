@@ -18,11 +18,10 @@ pointer-events: none;
     border-radius: 90%;
     transition-duration: 1500ms;
     transition-property:transform;;
-    transform:translate(-200px,200px);
+    transform:translate(-200px,10vh);
     position: fixed;
     z-index: -5;
   position: fixed;
-  overflow: hidden;
 
 
 }
@@ -36,8 +35,12 @@ span {
 .title {
     font-family: title;
     color: rgb(255, 255, 255);
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     /* transform: translateX(-20%); */
 }
 .title1 {
@@ -68,12 +71,15 @@ span {
       transition-duration: 1000ms;
   
   }
+  .form {
+      transition-duration: 2000ms;
+  }
 
 
 /*  ***************** FORM ***************** */
 .first {
  
-overflow: visible;
+overflow: scroll;
 }
 h1 {
     margin: 0;
@@ -253,7 +259,7 @@ z-index: 300;
     width:200px;
     align-self: flex-end;
     margin: 5px;
- transition-duration: 1000ms;
+ transition-duration: 2000ms;
 }
 
 .div1 {
@@ -266,13 +272,13 @@ transform: translate(-74%,-60%);
 /* overflow: hidden; */
 }
 .signuptop {
-    transform: translateY(190%);
+    /* transform: translateX(190vw); */
 }
 .signupform {
-    transform: translateY(200vh);
+    transform: translateX(200vh);
 }
 .signupsvg {
-    transform: translateX(220%);
+    transform: translateX(120vw);
 }
 
 
@@ -309,7 +315,7 @@ transform: translate(-74%,-60%);
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition-duration: 1000ms;
+      transition-duration: 2000ms;
   
   }
 
@@ -330,7 +336,7 @@ h1 {
     
     position: absolute;
     left: 10% ;
-    transition-duration: 1000ms;
+    transition-duration: 2000ms;
 
 
   
@@ -338,17 +344,6 @@ h1 {
 
 
 
-.file2 {
-    position: absolute;
-height: 30%;
-    width: 50%;
- transform: translate();
-
- bottom: 9em;
- left: -2em;
- z-index: 5;
- transition-duration: 1000ms;
-}
 
 
 .signupForm {
@@ -400,11 +395,13 @@ margin: 10px 2px;
 }
 @media only screen and (max-height:715px){
 .signinimg {
-    width: 35vw;
+    width: 30vh;
 }
 h1 {
     font-size: 22px;
+  
 }
+
 h1.title {
     font-size: 20px;
 }
@@ -419,13 +416,34 @@ h1.title {
 }
 @media only screen and (min-width:600px){
   
+    .signinimg {
+        width: 200px;
+    }
     h1 {
         font-size: 32px;
     }
     h1.title {
         font-size: 25px;
+      
     }
     p {
         font-size : 18px;
     }
     }
+    @media only screen and (min-width:1000px){
+ 
+        .signinimg {
+            width: 150px;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        h1.title {
+            font-size: 25px;
+          
+        }
+        p {
+            font-size : 18px;
+        }
+        }
+     

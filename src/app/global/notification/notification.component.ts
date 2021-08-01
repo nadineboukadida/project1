@@ -6,6 +6,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { notification, NotificationModule } from 'src/app/model/notification/notification.module';
 import { IDemandes } from 'src/app/service/demande.service';
+import { LoginService } from 'src/app/service/login.service';
 import { NotificationService } from 'src/app/service/notification.service';
 import { PositionService } from 'src/app/service/position.service';
 
@@ -21,13 +22,15 @@ notificationSub : Subscription;
 table : notification[]
   currentnotifs = this.notifications.asObservable();
   update: notification[];
-  position: string;
+  valid: boolean;
+  exist: boolean;
 
   constructor(
     private notificationservice: NotificationService,
     private positionservice: PositionService,
     public firebaseAuth : AngularFireAuth ,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private loginservice:LoginService
     ) 
     {
  
@@ -35,24 +38,29 @@ table : notification[]
 
 
   ngOnInit(): void {
+    this.exist = true ;
+
     this.currentnotifs.subscribe(n => {
       if (n) 
       this.table=n})
 
       
-      this.positionservice.currentpos.subscribe((pos)=>
-       {this.position=pos
-        if (pos=="notif"){
+      this.positionservice.getposition().subscribe((pos)=>
+       {
+this.valid = (pos =="notif")
+        if (this.valid){
     this.currentnotifs.subscribe((n)=> {
       if(n){
       n.forEach((e)=> {
   if (e.seen==false){
-    console.log('changing')
+    console.log(pos)
 
         this.data ={
           seen : true
         }
-        this.notificationservice.updateseen(e,this.data,localStorage.getItem('user'))
+        this.notificationservice.setupdate(true)
+
+        this.notificationservice.updateseen(e,this.data,this.loginservice.userID)
        } })
     }})
       }
@@ -92,7 +100,10 @@ checkseen() {
               } as notification;
             })
             this.updatenotifs(this.update)
-          }})}
+          this.exist = false;    }}
+
+          
+          )}
       else {
         
         return (null)

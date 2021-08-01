@@ -20,7 +20,26 @@ notif : boolean = false;
     private notificationservice: NotificationService) {
 this.notificationservice.getpic().subscribe((pic)=> this.pic = pic)
 
-    this.positionservice.currentpos.subscribe((pos)=> {this.position=pos
+    this.positionservice.getposition().subscribe((pos)=> {this.position=pos
+   
+   
+      if (this.position=="home") {
+        this.home=true;
+        this.notif=false;
+        this.add=false;
+      }
+      else if (this.position=="notif") {
+        this.notif=true;
+        this.home=false;
+        this.add=false;
+      }
+      else if (this.position=="add"){
+        this.add=true ;
+        this.home=false;
+        this.notif=false;
+      }
+   
+   
     })
     // })
    }
@@ -28,34 +47,19 @@ this.notificationservice.getpic().subscribe((pic)=> this.pic = pic)
   ngOnInit(): void {
 
 
-    if (this.position=="home") {
-      this.home=true;
-      this.notif=false;
-      this.add=false;
-    }
-    else if (this.position=="notif") {
-      this.notif=true;
-      this.home=false;
-      this.add=false;
-    }
-    else if (this.position=="add"){
-      this.add=true ;
-      this.home=false;
-      this.notif=false;
-    }
   }
   homeClick(){
     this.home=true;
     this.notif=false;
     this.add=false;
- this.positionservice.changeMode("home");
+ this.positionservice.changeMode1("home");
  
   }
   addClick(){
     this.add=true;
     this.home=false;
     this.notif=false;
-    this.positionservice.changeMode("add")
+    this.positionservice.changeMode1("add")
  
 
   }
@@ -63,8 +67,7 @@ this.notificationservice.getpic().subscribe((pic)=> this.pic = pic)
     this.notif=true;
     this.home=false;
     this.add=false;
- this.positionservice.changeMode("notif")
- this.notificationservice.setpic("notif")
+ this.positionservice.changeMode1("notif")
 
 
   }

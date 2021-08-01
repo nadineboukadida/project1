@@ -32,23 +32,13 @@ export class WorkingonComponent implements OnInit {
     private firestore: AngularFirestore, private loginservice:LoginService
         ) 
     {
-      
-    
-     
-  
-//  this.positionservice.changePosition("home");
-   
    }
 
   ngOnInit(): void {
 
-    // localStorage.removeItem('admin')
     localStorage.setItem('admin','false')
-    this.user= this.userservice.thisuser
-
     this.getadminRec()
     // console.log(this.demandes)
-    this.current=this.demandes
  
 
   }
@@ -59,7 +49,8 @@ export class WorkingonComponent implements OnInit {
     this.adminservice.getadmin()
     .subscribe(
       (res)=> {
-      
+      if (res){
+        console.log (res)
         this.admins= res.map (
         (demand)=> { 
           console.log(demand)
@@ -68,19 +59,8 @@ export class WorkingonComponent implements OnInit {
      ...demand.payload.doc.data() as IDemandes,
              id : demand.payload.doc.id
           } as IDemandes;
-           });  })
-     localStorage.setItem('first', 'true') 
-
-      
-        this.admins= [...new Set(this.admins)]
-        console.log('ggggggggggggggggggg',this.admins)
-         setTimeout(() => {
-            this.getworkingon(this.admins) 
-     
-         },2500); 
-            
-           
-
+                     
+        });   this.getworkingon(this.admins)}})
         
           }
   
@@ -90,35 +70,22 @@ export class WorkingonComponent implements OnInit {
   getworkingon(array){
   
  array.forEach((res:IDemandes)=> {
+   
     this.firestore.collection('demands').doc(res.uid)
       .collection('collection').doc(res.docid).valueChanges().subscribe(
           (e:IDemandes)=> {
+if (e){
            this.demandes.push(e)
-           })
+           } })
+this.current=this.demandes
+console.log('waaaaaaaaa', this.current)
  }    
       )
   
-setTimeout(() => {
-this.current=this.demandes
-  }, 2000);
+
+  
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 reload(){
   location.reload()
@@ -129,7 +96,6 @@ working(){
   this.selected1=true;
   this.selected2=false;
   this.selected3=false;
-
 }
   ok (){
     this.current= this.demandes.filter(demand => demand.level ==3)

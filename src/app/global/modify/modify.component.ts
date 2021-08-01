@@ -159,7 +159,7 @@ console.log('res', res)
     this.final={
      level:3
     }
-   this.demandeservice.updatelevel(this.final,this.demande.docid);
+   this.demandeservice.updatelevel(this.final,this.demande);
    this.notif ={ 
     title :"new update !",
     body : "Request Accepted 🎉 Click to check it out",
@@ -178,7 +178,7 @@ this.notificationservice.sendNotif(this.personne,this.notif)
     this.final={
       level:4
      }
-    this.demandeservice.updatelevel(this.final,this.demande.docid);
+    this.demandeservice.updatelevel(this.final,this.demande);
     this.notif ={ 
       title :"new update !",
       body : "Request Closed :) Click to check it out",

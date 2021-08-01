@@ -4,27 +4,13 @@
     /* background-size: cover; */
     /* background-repeat: repeat; */
   /* background-image: url(/assets/back/normal.svg); */
-    
+  background-color: #9ebfdb;
+  background-color: #9ebfdb;
+background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
-
-
-.style {
-    /* opacity: 0; */
-    top: 0;
-    position: absolute;
-    z-index: 600;
-    transform: translateY(-80px);
-    width: 100vw;
-    height: 50vh;
-    background: rgb(164,209,255);
-  background: linear-gradient(87deg,
-  rgb(25, 21, 80)
-  0%,
-   rgba(62, 162, 165, 0.329) 100%);
-   background-repeat: repeat;
-   background-size: contain;
-   z-index: -1;
-  }
 
   .notice {
       margin-top: 65px;

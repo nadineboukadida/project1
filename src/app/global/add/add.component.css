@@ -1,7 +1,10 @@
 .container {
     width: 100vw;
     height: 100vh;
-    background-image: url(/assets/svgadd/background.svg);
+    background-color: #9ebfdb;
+background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* background-image: url(/assets/svgadd/background.svg); */
     position: relative;
     /* transform: translate(30px); */
 }
@@ -10,7 +13,7 @@
     src: url(/assets/NexaLight.otf);
   }
 .measures {
-    background-image: url(/assets/svgadd/background.svg);
+    /* background-image: url(/assets/svgadd/background.svg); */
 
     margin-top: 70px;
     width: 100vw;

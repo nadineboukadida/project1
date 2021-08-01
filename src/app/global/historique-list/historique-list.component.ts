@@ -9,12 +9,15 @@ import { DemandeService, IDemandes } from 'src/app/service/demande.service';
 })
 export class HistoriqueListComponent implements OnInit {
   demandes:IDemandes[] = [];
+  exist: boolean;
 
   constructor(private demandeservice :DemandeService) {
    }
 
   ngOnInit(): void {
     // this.getdemandes()
+    this.exist = true ;
+
     this.getdemand()
   }
 
@@ -22,6 +25,7 @@ export class HistoriqueListComponent implements OnInit {
 this.demandeservice.gethistory()
    .subscribe(
     (res)=> {
+      if (res) {
       this.demandes= res.map (
       (demand)=> { 
         return {
@@ -31,8 +35,9 @@ this.demandeservice.gethistory()
         } as IDemandes;
         
       })
-    }
-   )
+    }     this.exist = false ;
+
+   })
 }
 
 

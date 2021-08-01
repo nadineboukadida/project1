@@ -83,6 +83,8 @@ onSubmit (myform: { name : string ,
   console.log(this.loginservice.userID);
   this.demandeservice.addDemande(this.final);
   this.noticeservice.changeMode({msg:"Just added it!", valid  :true})
+this.positionservice.changeMode1("home")
+
 }
 
 

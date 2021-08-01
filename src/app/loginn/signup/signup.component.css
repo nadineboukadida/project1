@@ -91,7 +91,7 @@ input{
   transform: translate(0,-7px);
   font-size: 16px;
 }
-.div-mail {
+.div-mail, .div {
     position: relative;
   
 }
@@ -157,7 +157,9 @@ transition: 500ms ease;
 
 }
 
+
 .form1 input:focus + .label-mail .span-mail,
+
 .form1 input:valid + .label-mail .span-mail {
     transform: translateY(-25%);
   font-size: 15px;
@@ -220,14 +222,15 @@ z-index: 300;
 transform: translate(-74%,-60%);;
 }
 .signuptop {
-    transform: translateY(200vh);
+    transform: translateY(50000px);
 }
 .signupform, #form1.signupform{
     transform: translateY(-130%);
+    
    
 }
 .signupsvg {
-    transform: translateX(200vh);
+    transform: translateX(120vw);
 }
 .transform {
  pointer-events: none;
@@ -270,11 +273,11 @@ h1 {
 .file2 {
     /* position: absolute; */
 align-self: flex-start;
-    width: 35vw;
- /* transform: translate(-40px); */
+    width: 30vw;
+ /* transform: translate); */
  z-index: 5;
  /* top: 0; */
- transition-duration: 1000ms;
+ transition-duration: 2000ms;
 }
 
 
@@ -400,7 +403,7 @@ li {
   color: rgb(0, 0, 0);
       display: flex;
       align-self: center;
-      flex-wrap: wrap;
+      /* flex-wrap: wrap; */
       justify-content: center;
       align-items: center;
       /* transform: translateY(-7vh); */
@@ -464,4 +467,23 @@ span.error {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+}
+.div input:focus + .label-mail .span-mail ,
+.div input.ng-valid + .label-mail .span-mail{
+    transform: translateY(-25%);
+    font-size: 15px;
+}
+.div input:focus + .label-mail::after ,
+ .div input.ng-valid + .label-mail::after{
+    transform: translateX(0%);
+    opacity: 1;
+} 
+
+@media only screen and (min-width:800px){ 
+    .file2{
+        width: 150px;
+    }
+    .signupform{
+        overflow: hidden;
+    }
 }

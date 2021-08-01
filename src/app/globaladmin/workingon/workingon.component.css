@@ -7,10 +7,9 @@
         /* padding-top: 70px; */
         padding-bottom: 70px;
         z-index: 100;
-        /* background-image: url(/assets/svgadd/background.svg); */
-
-    /* background-color: rgba(149, 183, 255, 0.342); */
-/* overflow: scroll; */
+        background-color: #122f49;
+background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
     }
     h3 {
         color: aliceblue;
@@ -25,6 +24,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+     
     }
     img {
         width: 60px;

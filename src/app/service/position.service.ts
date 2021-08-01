@@ -7,13 +7,14 @@ import { BehaviorSubject } from 'rxjs';
 export class PositionService {
 notif : string ='notif';
 private position= new BehaviorSubject<string>('home')
-currentpos= this.position.asObservable();
   
 
-changeMode(pos:string){
+changeMode1(pos:string){
   this.position.next(pos)
     }
-
+getposition (){
+  return this.position.asObservable()
+}
 
   constructor() { 
 

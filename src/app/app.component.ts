@@ -31,7 +31,7 @@ notifications = new BehaviorSubject<notification[]>(null)
   hide: boolean;
   position: string;
   data: { seen: boolean; };
-  noupdate: boolean;
+  update1: boolean;
 
 
   ngOnInit(): void {
@@ -57,7 +57,8 @@ notifications = new BehaviorSubject<notification[]>(null)
     private firestore: AngularFirestore,
     private noticeservice : NoticesService){
 
-      this.positionservice.currentpos.subscribe((pos)=> {
+      this.notificationservice.getupdate().subscribe((e)=> this.update1 =e)
+      this.positionservice.getposition().subscribe((pos)=> {
         this.position = pos;
         console.log('pooooooooooooooooooooooos',pos)
         if (pos=="notif"){
@@ -65,11 +66,13 @@ notifications = new BehaviorSubject<notification[]>(null)
 
         }
         else {
-          if (this.noupdate){
+          (this.update1)
+        {
           this.notificationservice.setpic("notifgray")
 
-          }
         }
+        }
+     
       
       })
 
@@ -80,12 +83,13 @@ notifications = new BehaviorSubject<notification[]>(null)
             console.log("waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
             console.log(n.filter((notif)=> (notif.seen==false)))
             this.notificationservice.setpic("notif1")
-            this.noupdate=false;
+            this.notificationservice.setupdate(false)
           }
         else {
       if (this.position=="notif")
       this.notificationservice.setpic("notif")
           else {
+            if (this.update1)
       this.notificationservice.setpic("notifgray")
 
           }

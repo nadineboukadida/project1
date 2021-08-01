@@ -1,4 +1,14 @@
+.big {
+    /* background-image: url(/assets/svgadd/background.svg); */
+      background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+      background-color: #9ebfdb;
+      background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+      /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    
+    width: 100vw;
+    height: 120%;
 
+}
     .container-demande {
         display: flex;
         flex-wrap: wrap;
@@ -7,10 +17,15 @@
         padding-top: 70px;
         padding-bottom: 70px;
         z-index: 100;
-        background-image: url(/assets/svgadd/background.svg);
+        /* background-image: url(/assets/svgadd/background.svg); */
     }
 
-
+    h5 {
+        color: rgb(0, 0, 0);
+        font-size: 23px;
+        font-family: title;
+        margin: 10px;
+    }
 
 @font-face {
     font-family: title;
